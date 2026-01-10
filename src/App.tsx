@@ -7,6 +7,7 @@ import Index from "./pages/Index";
 import ProductPage from "./pages/ProductPage";
 import OnlineCourses from "./pages/OnlineCourses";
 import NotFound from "./pages/NotFound";
+import ScrollToHash from "@/components/ScrollToHash";
 
 const queryClient = new QueryClient();
 
@@ -17,6 +18,7 @@ const App = () => (
       <Sonner />
       <BrowserRouter basename={import.meta.env.BASE_URL}>
         {" "}
+        <ScrollToHash />
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/product/:id" element={<ProductPage />} />

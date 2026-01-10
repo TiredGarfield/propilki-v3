@@ -100,7 +100,7 @@ const ProductPage = () => {
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
           <h1 className="text-2xl font-medium text-neutral-900 mb-4">Product not found</h1>
-          <Button onClick={() => navigate("/")} variant="outline">
+          <Button onClick={() => navigate("/#catalog")} variant="outline">
             Return to catalog
           </Button>
         </div>

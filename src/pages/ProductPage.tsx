@@ -146,7 +146,7 @@ const ProductPage = () => {
           {/* Back button */}
           <Button 
             variant="ghost" 
-            onClick={() => navigate("/")}
+            onClick={() => navigate("/#courses")}
             className="mb-8 text-neutral-600 hover:text-neutral-900"
           >
             <ArrowLeft className="h-4 w-4 mr-2" />

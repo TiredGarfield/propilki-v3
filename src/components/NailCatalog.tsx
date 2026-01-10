@@ -90,7 +90,7 @@ const NailCatalog = () => {
     : nailProducts.filter(product => product.category === selectedCategory);
 
   return (
-    <section className="py-24 px-6 bg-white">
+    <section id="courses" className="py-24 px-6 bg-white">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-20">
           <h2 className="text-4xl md:text-5xl font-light text-neutral-900 mb-6 tracking-tight">

@@ -5,7 +5,7 @@ import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  base: "/propilki-v2-lovable/",
+  base: "/propilki-v3/",
   server: {
     host: "::",
     port: 8080,

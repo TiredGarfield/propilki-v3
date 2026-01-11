@@ -16,30 +16,17 @@ type Props = {
   };
 };
 
-const isAbsoluteUrl = (v: string) => /^https?:\/\//i.test(v);
-
-const resolveImg = (src?: string) => {
-  if (!src)
-    return `${
-      import.meta.env.BASE_URL
-    }images/online-courses/course-placeholder.webp`;
-  if (isAbsoluteUrl(src)) return src;
-  // dacă vine ca "/images/..." sau "images/..."
-  const cleaned = src.startsWith("/") ? src.slice(1) : src;
-  return `${import.meta.env.BASE_URL}${cleaned}`;
-};
-
 const AboutSection = ({ about }: Props) => {
-  const imageSrc = resolveImg(about.image);
+  const imgSrc = `${import.meta.env.BASE_URL}images/biography.jpg`;
 
   return (
-    <section className="py-12 sm:py-14 md:py-16 px-4 sm:px-6 bg-muted/50">
+    <section id="about" className="py-12 sm:py-14 md:py-16 px-4 sm:px-6 bg-muted/50">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 sm:gap-12 lg:gap-14 items-center">
           <div className="relative">
             <div className="relative aspect-video bg-muted rounded-lg overflow-hidden elegant-shadow">
               <img
-                src={imageSrc}
+                src={imgSrc}
                 alt={about.imageAlt}
                 className="w-full h-full object-cover hover-lift"
                 loading="lazy"

@@ -6,11 +6,7 @@ const Biography = ({ content }: Props) => {
   const id = content?.id ?? "biography";
   const paragraphs = (content?.paragraphs ?? []) as string[];
 
-  const imgSrc = content?.image
-    ? content.image.startsWith("http")
-      ? content.image
-      : `${import.meta.env.BASE_URL}${content.image}`
-    : `${import.meta.env.BASE_URL}images/biography.jpg`;
+const imgSrc = `${import.meta.env.BASE_URL}images/biography.jpg`;
 
   return (
     <section id={id} className="py-14 sm:py-16 md:py-20 px-4 sm:px-6 bg-white">

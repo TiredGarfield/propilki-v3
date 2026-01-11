@@ -67,7 +67,7 @@ const ReviewsSection = ({ reviews }: Props) => {
   const currentText = items[index] ?? "";
 
   return (
-    <section className="py-12 sm:py-14 md:py-16 px-4 sm:px-6 bg-muted/50">
+    <section id="reviews" className="py-12 sm:py-14 md:py-16 px-4 sm:px-6 bg-muted/50">
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-10 sm:mb-12 md:mb-14">
           <div className="inline-flex items-center gap-2 bg-secondary border border-border rounded-full px-3.5 py-1.5 mb-5 sm:mb-6">

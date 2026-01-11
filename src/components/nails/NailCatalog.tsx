@@ -25,18 +25,15 @@ type Props = {
   };
 };
 
-const MOBILE_PAGE_SIZE = 4; // <640px
-const DESKTOP_PAGE_SIZE = 8; // >=640px
+const MOBILE_PAGE_SIZE = 2;
+const DESKTOP_PAGE_SIZE = 8;
 
 type PageToken = number | "…";
 
-// max 4 cifre vizibile (ellipsis nu se numără)
 const getVisiblePages = (current: number, total: number): PageToken[] => {
   if (total <= 4) return Array.from({ length: total }, (_, i) => i + 1);
-
   if (current <= 3) return [1, 2, 3, "…", total];
   if (current >= total - 2) return [1, "…", total - 2, total - 1, total];
-
   return [1, "…", current, "…", total];
 };
 
@@ -51,7 +48,6 @@ const NailCatalog = ({ content }: Props) => {
   );
   const [page, setPage] = useState(1);
 
-  // responsive page size (Tailwind sm = 640px)
   const [pageSize, setPageSize] = useState<number>(() => {
     if (typeof window === "undefined") return DESKTOP_PAGE_SIZE;
     return window.matchMedia("(min-width: 640px)").matches
@@ -74,7 +70,6 @@ const NailCatalog = ({ content }: Props) => {
       return () => mql.removeEventListener("change", onChange);
     }
 
-    // legacy Safari
     // eslint-disable-next-line deprecation/deprecation
     const onChangeLegacy = () => apply();
     // eslint-disable-next-line deprecation/deprecation
@@ -99,12 +94,10 @@ const NailCatalog = ({ content }: Props) => {
     return filteredProducts.slice(start, start + pageSize);
   }, [filteredProducts, page, pageSize]);
 
-  // reset page când schimbi categoria SAU pageSize (NU facem scroll)
   useEffect(() => {
     setPage(1);
   }, [selectedCategory, pageSize]);
 
-  // clamp page dacă se schimbă totalPages (NU facem scroll)
   useEffect(() => {
     if (page > totalPages) setPage(totalPages);
   }, [page, totalPages]);
@@ -144,12 +137,9 @@ const NailCatalog = ({ content }: Props) => {
     setSelectedCategory(category);
   };
 
-  // ✅ scroll DOAR când apeși pe paginare
   const goToPage = (nextPage: number) => {
     const clamped = Math.min(totalPages, Math.max(1, nextPage));
     setPage(clamped);
-
-    // scroll imediat la catalog (doar pe paginare)
     requestAnimationFrame(() => scrollToCatalogTop());
   };
 
@@ -159,19 +149,23 @@ const NailCatalog = ({ content }: Props) => {
   );
 
   return (
-    <section id="catalog" ref={sectionRef} className="py-24 px-6 bg-white">
+    <section
+      id="catalog"
+      ref={sectionRef}
+      className="py-14 sm:py-16 md:py-20 px-4 sm:px-6 bg-white"
+    >
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-20">
-          <h2 className="text-4xl md:text-5xl font-light text-neutral-900 mb-6 tracking-tight">
+        <div className="text-center mb-10 sm:mb-12 md:mb-14">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-light text-neutral-900 mb-4 sm:mb-5 tracking-tight">
             {content.title}
           </h2>
-          <div className="w-24 h-px bg-neutral-300 mx-auto mb-8" />
-          <p className="text-lg text-neutral-600 font-light">
+          <div className="w-16 sm:w-20 md:w-24 h-px bg-neutral-300 mx-auto mb-5 sm:mb-6" />
+          <p className="text-base sm:text-lg text-neutral-600 font-light">
             {content.subtitle}
           </p>
         </div>
 
-        <div className="flex justify-center mb-10">
+        <div className="flex justify-center mb-7 sm:mb-8 md:mb-10">
           <div
             ref={categoryBarRef}
             className="w-full max-w-5xl overflow-x-auto no-scrollbar"
@@ -183,7 +177,7 @@ const NailCatalog = ({ content }: Props) => {
                   data-cat={category}
                   variant={selectedCategory === category ? "default" : "ghost"}
                   onClick={() => selectCategory(category)}
-                  className={`px-6 py-2 rounded-none font-medium tracking-wide transition-all duration-300 whitespace-nowrap ${
+                  className={`px-5 sm:px-6 py-2 rounded-none font-medium tracking-wide transition-all duration-300 whitespace-nowrap ${
                     selectedCategory === category
                       ? "bg-black text-white hover:bg-neutral-800"
                       : "text-neutral-600 hover:text-black hover:bg-neutral-50"
@@ -197,8 +191,7 @@ const NailCatalog = ({ content }: Props) => {
           </div>
         </div>
 
-        {/* ✅ Tailwind standard grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
           {pageItems.map((product) => {
             const coverImage = product.images?.[0]
               ? `${import.meta.env.BASE_URL}${product.images[0]}`
@@ -216,16 +209,16 @@ const NailCatalog = ({ content }: Props) => {
                   <img
                     src={coverImage}
                     alt={product.name}
-                    className="w-full h-72 object-cover group-hover:scale-105 transition-transform duration-700"
+                    className="w-full h-56 sm:h-64 md:h-72 object-cover group-hover:scale-105 transition-transform duration-700"
                     loading="lazy"
                   />
 
-                  <span className="absolute top-4 left-4 bg-white/90 text-neutral-700 text-xs font-medium px-2 py-1 tracking-wider uppercase">
+                  <span className="absolute top-3 left-3 sm:top-4 sm:left-4 bg-white/90 text-neutral-700 text-[10px] sm:text-xs font-medium px-2 py-1 tracking-wider uppercase">
                     {product.category}
                   </span>
 
-                  <div className="absolute inset-x-4 bottom-4 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-4 group-hover:translate-y-0">
-                    <Button className="w-full bg-black hover:bg-neutral-800 text-white rounded-none font-medium tracking-wide text-sm py-2">
+                  <div className="absolute inset-x-3 sm:inset-x-4 bottom-3 sm:bottom-4 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-4 group-hover:translate-y-0">
+                    <Button className="w-full bg-black hover:bg-neutral-800 text-white rounded-none font-medium tracking-wide text-xs sm:text-sm py-2">
                       <Eye className="h-3 w-3 mr-2" />
                       {content.badgeLabel}
                     </Button>
@@ -233,18 +226,18 @@ const NailCatalog = ({ content }: Props) => {
                 </div>
 
                 <div
-                  className="p-6"
+                  className="p-4 sm:p-6"
                   onClick={() => navigate(`/product/${product.id}`)}
                 >
-                  <h3 className="text-lg font-medium text-neutral-900 mb-2 tracking-wide">
+                  <h3 className="text-sm sm:text-lg font-medium text-neutral-900 mb-2 tracking-wide line-clamp-1">
                     {product.name}
                   </h3>
 
                   <div className="flex items-center justify-between mb-3">
-                    <span className="text-lg font-medium text-neutral-900">
-                     from {product.price}
+                    <span className="text-sm sm:text-lg font-medium text-neutral-900">
+                      from {product.price}
                     </span>
-                    <span className="text-xs text-neutral-500 font-medium tracking-wider uppercase">
+                    <span className="text-[10px] sm:text-xs text-neutral-500 font-medium tracking-wider uppercase">
                       {product.length}
                     </span>
                   </div>
@@ -253,7 +246,7 @@ const NailCatalog = ({ content }: Props) => {
                     {product.colors.map((color, i) => (
                       <span
                         key={i}
-                        className="text-xs bg-neutral-100 text-neutral-600 px-2 py-1 font-light tracking-wide"
+                        className="text-[10px] sm:text-xs bg-neutral-100 text-neutral-600 px-2 py-1 font-light tracking-wide"
                       >
                         {color}
                       </span>
@@ -265,15 +258,14 @@ const NailCatalog = ({ content }: Props) => {
           })}
         </div>
 
-        {/* Pagination */}
         {totalPages > 1 && (
-          <div className="mt-14 flex items-center justify-center">
+          <div className="mt-8 sm:mt-10 md:mt-12 flex items-center justify-center">
             <div className="flex items-center gap-1 sm:gap-2 flex-nowrap overflow-x-auto no-scrollbar px-2">
               <Button
                 variant="ghost"
                 onClick={() => goToPage(page - 1)}
                 disabled={page <= 1}
-                className="rounded-none px-2"
+                className="rounded-none px-2 py-1 sm:px-3 sm:py-2"
                 type="button"
                 aria-label="Previous page"
               >
@@ -285,7 +277,7 @@ const NailCatalog = ({ content }: Props) => {
                 token === "…" ? (
                   <span
                     key={`dots-${i}`}
-                    className="px-1 sm:px-2 text-neutral-400 text-sm select-none"
+                    className="px-2 sm:px-3 text-neutral-400 text-sm select-none"
                   >
                     …
                   </span>
@@ -294,7 +286,7 @@ const NailCatalog = ({ content }: Props) => {
                     key={token}
                     type="button"
                     onClick={() => goToPage(token)}
-                    className={`h-10 min-w-10 px-3 text-sm font-medium tracking-wide border transition ${
+                    className={`h-9 min-w-9 px-3 text-sm font-medium tracking-wide border transition ${
                       token === page
                         ? "bg-black text-white border-black"
                         : "bg-white text-neutral-700 border-neutral-200 hover:border-neutral-400"
@@ -309,7 +301,7 @@ const NailCatalog = ({ content }: Props) => {
                 variant="ghost"
                 onClick={() => goToPage(page + 1)}
                 disabled={page >= totalPages}
-                className="rounded-none px-2"
+                className="rounded-none px-2 py-1 sm:px-3 sm:py-2"
                 type="button"
                 aria-label="Next page"
               >

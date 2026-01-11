@@ -58,8 +58,8 @@ const PackagingVisual = ({ content }: Props) => {
               />
             </div>
 
-            <div className="absolute -bottom-3 sm:-bottom-4 -right-3 sm:-right-4 w-20 h-20 sm:w-24 sm:h-24 bg-white/10 backdrop-blur-sm rounded-lg flex items-center justify-center">
-              <span className="text-white font-light text-[10px] sm:text-xs text-center">
+            <div className="absolute right-2 bottom-2 sm:-right-5 sm:-bottom-5 w-20 h-20 sm:w-24 sm:h-24 bg-neutral-700/60 backdrop-blur-sm rounded-lg flex items-center justify-center">
+              <span className="text-white font-light text-[10px] sm:text-xs text-center leading-snug">
                 {content.badge.line1}
                 <br />
                 {content.badge.line2}

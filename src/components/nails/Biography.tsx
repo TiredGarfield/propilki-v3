@@ -6,7 +6,7 @@ const Biography = ({ content }: Props) => {
   const id = content?.id ?? "biography";
   const paragraphs = (content?.paragraphs ?? []) as string[];
 
-const imgSrc = `${import.meta.env.BASE_URL}images/biography.jpg`;
+  const imgSrc = `${import.meta.env.BASE_URL}images/biography.jpg`;
 
   return (
     <section id={id} className="py-14 sm:py-16 md:py-20 px-4 sm:px-6 bg-white">
@@ -36,7 +36,7 @@ const imgSrc = `${import.meta.env.BASE_URL}images/biography.jpg`;
               />
             </div>
 
-            <div className="absolute -bottom-4 -right-4 sm:-bottom-5 sm:-right-5 w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 bg-neutral-900 rounded-lg flex items-center justify-center">
+            <div className="absolute right-2 bottom-2 sm:-right-5 sm:-bottom-5 w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 bg-neutral-900 rounded-lg flex items-center justify-center">
               <span className="text-white font-light text-xs sm:text-sm text-center leading-snug">
                 {content?.badge?.line1}
                 <br />

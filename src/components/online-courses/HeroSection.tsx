@@ -1,6 +1,7 @@
 import { Award, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import StatsGrid from "./StatsGrid";
+import { Link } from "react-router-dom";
 
 type Props = {
   hero: {
@@ -10,7 +11,6 @@ type Props = {
     description: string;
     button: string;
     buttonHref?: string;
-    image: string;
     imageAlt?: string;
   };
   stats: Array<{
@@ -20,20 +20,8 @@ type Props = {
   }>;
 };
 
-const isAbsoluteUrl = (v: string) => /^https?:\/\//i.test(v);
-
-const resolveImg = (src?: string) => {
-  if (!src)
-    return `${
-      import.meta.env.BASE_URL
-    }images/online-courses/course-placeholder.webp`;
-  if (isAbsoluteUrl(src)) return src;
-  const cleaned = src.startsWith("/") ? src.slice(1) : src;
-  return `${import.meta.env.BASE_URL}${cleaned}`;
-};
-
 const HeroSection = ({ hero, stats }: Props) => {
-  const imageSrc = resolveImg(hero.image);
+  const imageSrc = `${import.meta.env.BASE_URL}images/hero.jpeg`;
 
   return (
     <section className="pt-24 sm:pt-24 md:pt-28 pb-12 sm:pb-14 md:pb-16 px-4 sm:px-6 bg-white">
@@ -56,22 +44,21 @@ const HeroSection = ({ hero, stats }: Props) => {
               {hero.description}
             </p>
 
-            <Button
-              asChild={Boolean(hero.buttonHref)}
-              className="bg-primary px-6 sm:px-8 h-11"
-            >
-              {hero.buttonHref ? (
+            {hero.buttonHref ? (
+              <Button asChild className="bg-primary px-6 sm:px-8 h-11">
                 <a href={hero.buttonHref} target="_blank" rel="noreferrer">
                   {hero.button}
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </a>
-              ) : (
-                <span className="inline-flex items-center">
+              </Button>
+            ) : (
+              <Button asChild className="bg-primary px-6 sm:px-8 h-11">
+                <Link to="#about" className="inline-flex items-center">
                   {hero.button}
                   <ArrowRight className="ml-2 h-4 w-4" />
-                </span>
-              )}
-            </Button>
+                </Link>
+              </Button>
+            )}
           </div>
 
           <div className="relative aspect-video bg-muted rounded-lg overflow-hidden elegant-shadow">

@@ -20,7 +20,10 @@ const AboutSection = ({ about }: Props) => {
   const imgSrc = `${import.meta.env.BASE_URL}images/biography.jpg`;
 
   return (
-    <section id="about" className="py-12 sm:py-14 md:py-16 px-4 sm:px-6 bg-muted/50">
+    <section
+      id="about"
+      className="py-12 sm:py-14 md:py-16 px-4 sm:px-6 bg-muted/50"
+    >
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 sm:gap-12 lg:gap-14 items-center">
           <div className="relative">
@@ -68,14 +71,6 @@ const AboutSection = ({ about }: Props) => {
               </Button>
 
               <div className="flex items-center gap-2 text-muted-foreground">
-                <div className="flex -space-x-2">
-                  {about.avatars.map((_, idx) => (
-                    <div
-                      key={idx}
-                      className="w-7 h-7 sm:w-8 sm:h-8 bg-primary rounded-full border-2 border-background"
-                    />
-                  ))}
-                </div>
                 <span className="text-sm">{about.socialProof}</span>
               </div>
             </div>

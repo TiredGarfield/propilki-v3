@@ -7,7 +7,7 @@ import Index from "./pages/Index";
 import ProductPage from "./pages/ProductPage";
 import OnlineCourses from "./pages/OnlineCourses";
 import NotFound from "./pages/NotFound";
-import ScrollToHash from "@/components/ScrollToHash";
+import ScrollToHash from "@/components/nails/ScrollToHash";
 
 const queryClient = new QueryClient();
 

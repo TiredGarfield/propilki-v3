@@ -1,0 +1,396 @@
+{
+    "products": [
+        {
+            "id": 101,
+            "name": "Art Press-Ons 01",
+            "price": "$22.99",
+            "category": "Art Press-Ons",
+            "colors": [
+                "Mixed"
+            ],
+            "length": "Medium",
+            "images": [
+                "/images/nails/nails-art/art-1-1.webp",
+                "/images/nails/nails-art/art-1-2.webp"
+            ]
+        },
+        {
+            "id": 102,
+            "name": "Art Press-Ons 02",
+            "price": "$24.99",
+            "category": "Art Press-Ons",
+            "colors": [
+                "Mixed"
+            ],
+            "length": "Medium",
+            "images": [
+                "/images/nails/nails-art/art-2-1.webp",
+                "/images/nails/nails-art/art-2-2.webp"
+            ]
+        },
+        {
+            "id": 103,
+            "name": "Art Press-Ons 03",
+            "price": "$26.99",
+            "category": "Art Press-Ons",
+            "colors": [
+                "Mixed"
+            ],
+            "length": "Long",
+            "images": [
+                "/images/nails/nails-art/art-3-1.webp",
+                "/images/nails/nails-art/art-3-2.webp",
+                "/images/nails/nails-art/art-3-3.webp",
+                "/images/nails/nails-art/art-3-4.webp"
+            ]
+        },
+        {
+            "id": 104,
+            "name": "Art Press-Ons 04",
+            "price": "$25.99",
+            "category": "Art Press-Ons",
+            "colors": [
+                "Mixed"
+            ],
+            "length": "Medium",
+            "images": [
+                "/images/nails/nails-art/art-4-1.webp",
+                "/images/nails/nails-art/art-4-2.webp"
+            ]
+        },
+        {
+            "id": 105,
+            "name": "Art Press-Ons 05",
+            "price": "$23.99",
+            "category": "Art Press-Ons",
+            "colors": [
+                "Mixed"
+            ],
+            "length": "Short",
+            "images": [
+                "/images/nails/nails-art/art-5-1.webp",
+                "/images/nails/nails-art/art-5-2.webp"
+            ]
+        },
+        {
+            "id": 106,
+            "name": "Art Press-Ons 06",
+            "price": "$24.99",
+            "category": "Art Press-Ons",
+            "colors": [
+                "Mixed"
+            ],
+            "length": "Medium",
+            "images": [
+                "/images/nails/nails-art/art-6-1.webp",
+                "/images/nails/nails-art/art-6-2.webp"
+            ]
+        },
+        {
+            "id": 107,
+            "name": "Art Press-Ons 07",
+            "price": "$24.99",
+            "category": "Art Press-Ons",
+            "colors": [
+                "Mixed"
+            ],
+            "length": "Medium",
+            "images": [
+                "/images/nails/nails-art/art-7-1.webp",
+                "/images/nails/nails-art/art-7-2.webp"
+            ]
+        },
+        {
+            "id": 201,
+            "name": "3D Designs 01",
+            "price": "$28.99",
+            "category": "3D Designs",
+            "colors": [
+                "Mixed"
+            ],
+            "length": "Long",
+            "images": [
+                "/images/nails/nails-3d/3d-design-1-1.webp",
+                "/images/nails/nails-3d/3d-design-1-2.webp"
+            ]
+        },
+        {
+            "id": 203,
+            "name": "3D Designs 03",
+            "price": "$29.99",
+            "category": "3D Designs",
+            "colors": [
+                "Mixed"
+            ],
+            "length": "Long",
+            "images": [
+                "/images/nails/nails-3d/3d-design-3-1.webp",
+                "/images/nails/nails-3d/3d-design-3-2.webp",
+                "/images/nails/nails-3d/3d-design-3-3.webp",
+                "/images/nails/nails-3d/3d-design-3-4.webp",
+                "/images/nails/nails-3d/3d-design-3-5.webp"
+            ]
+        },
+        {
+            "id": 204,
+            "name": "3D Designs 04",
+            "price": "$27.99",
+            "category": "3D Designs",
+            "colors": [
+                "Mixed"
+            ],
+            "length": "Medium",
+            "images": [
+                "/images/nails/nails-3d/3d-design-4-1.webp",
+                "/images/nails/nails-3d/3d-design-4-2.webp"
+            ]
+        },
+        {
+            "id": 205,
+            "name": "3D Designs 05",
+            "price": "$28.99",
+            "category": "3D Designs",
+            "colors": [
+                "Mixed"
+            ],
+            "length": "Long",
+            "images": [
+                "/images/nails/nails-3d/3d-design-5-1.webp",
+                "/images/nails/nails-3d/3d-design-5-2.webp",
+                "/images/nails/nails-3d/3d-design-5-3.webp",
+                "/images/nails/nails-3d/3d-design-5-4.webp"
+            ]
+        },
+        {
+            "id": 206,
+            "name": "3D Designs 06",
+            "price": "$26.99",
+            "category": "3D Designs",
+            "colors": [
+                "Mixed"
+            ],
+            "length": "Medium",
+            "images": [
+                "/images/nails/nails-3d/3d-design-6-1.webp",
+                "/images/nails/nails-3d/3d-design-6-2.webp",
+                "/images/nails/nails-3d/3d-design-6-3.webp"
+            ]
+        },
+        {
+            "id": 207,
+            "name": "3D Designs 07",
+            "price": "$27.99",
+            "category": "3D Designs",
+            "colors": [
+                "Mixed"
+            ],
+            "length": "Long",
+            "images": [
+                "/images/nails/nails-3d/3d-design-7-1.webp",
+                "/images/nails/nails-3d/3d-design-7-2.webp",
+                "/images/nails/nails-3d/3d-design-7-3.webp"
+            ]
+        },
+        {
+            "id": 208,
+            "name": "3D Designs 08",
+            "price": "$25.99",
+            "category": "3D Designs",
+            "colors": [
+                "Mixed"
+            ],
+            "length": "Medium",
+            "images": [
+                "/images/nails/nails-3d/3d-design-8-1.webp",
+                "/images/nails/nails-3d/3d-design-8-2.webp",
+                "/images/nails/nails-3d/3d-design-8-3.webp"
+            ]
+        },
+        {
+            "id": 209,
+            "name": "3D Designs 09",
+            "price": "$25.99",
+            "category": "3D Designs",
+            "colors": [
+                "Mixed"
+            ],
+            "length": "Medium",
+            "images": [
+                "/images/nails/nails-3d/3d-design-9-1.webp",
+                "/images/nails/nails-3d/3d-design-9-2.webp"
+            ]
+        },
+        {
+            "id": 210,
+            "name": "3D Designs 10",
+            "price": "$25.99",
+            "category": "3D Designs",
+            "colors": [
+                "Mixed"
+            ],
+            "length": "Medium",
+            "images": [
+                "/images/nails/nails-3d/3d-design-10.webp"
+            ]
+        },
+        {
+            "id": 211,
+            "name": "3D Designs 11",
+            "price": "$25.99",
+            "category": "3D Designs",
+            "colors": [
+                "Mixed"
+            ],
+            "length": "Medium",
+            "images": [
+                "/images/nails/nails-3d/3d-design-11.webp"
+            ]
+        },
+        {
+            "id": 301,
+            "name": "Korean-Inspired 01",
+            "price": "$18.99",
+            "category": "Korean-Inspired Trends",
+            "colors": [
+                "Mixed"
+            ],
+            "length": "Short",
+            "images": [
+                "/images/nails/nails-korean/korean-design-1.webp"
+            ]
+        },
+        {
+            "id": 302,
+            "name": "Korean-Inspired 02",
+            "price": "$19.99",
+            "category": "Korean-Inspired Trends",
+            "colors": [
+                "Mixed"
+            ],
+            "length": "Short",
+            "images": [
+                "/images/nails/nails-korean/korean-design-2.webp"
+            ]
+        },
+        {
+            "id": 303,
+            "name": "Korean-Inspired 03",
+            "price": "$20.99",
+            "category": "Korean-Inspired Trends",
+            "colors": [
+                "Mixed"
+            ],
+            "length": "Medium",
+            "images": [
+                "/images/nails/nails-korean/korean-design-3.webp"
+            ]
+        },
+        {
+            "id": 304,
+            "name": "Korean-Inspired 04",
+            "price": "$21.99",
+            "category": "Korean-Inspired Trends",
+            "colors": [
+                "Mixed"
+            ],
+            "length": "Medium",
+            "images": [
+                "/images/nails/nails-korean/korean-design-4-1.webp",
+                "/images/nails/nails-korean/korean-design-4-2.webp"
+            ]
+        },
+        {
+            "id": 305,
+            "name": "Korean-Inspired 05",
+            "price": "$21.99",
+            "category": "Korean-Inspired Trends",
+            "colors": [
+                "Mixed"
+            ],
+            "length": "Medium",
+            "images": [
+                "/images/nails/nails-korean/korean-design-5-1.webp",
+                "/images/nails/nails-korean/korean-design-5-2.webp"
+            ]
+        },
+        {
+            "id": 401,
+            "name": "Monochrome 01",
+            "price": "$19.99",
+            "category": "Monochrome Elegance",
+            "colors": [
+                "Monochrome"
+            ],
+            "length": "Short",
+            "images": [
+                "/images/nails/nails-monochrome/monochrome-1.webp"
+            ]
+        },
+        {
+            "id": 402,
+            "name": "Monochrome 02",
+            "price": "$20.99",
+            "category": "Monochrome Elegance",
+            "colors": [
+                "Monochrome"
+            ],
+            "length": "Medium",
+            "images": [
+                "/images/nails/nails-monochrome/monochrome-2.webp"
+            ]
+        },
+        {
+            "id": 403,
+            "name": "Monochrome 03",
+            "price": "$21.99",
+            "category": "Monochrome Elegance",
+            "colors": [
+                "Monochrome"
+            ],
+            "length": "Medium",
+            "images": [
+                "/images/nails/nails-monochrome/monochrome-3.webp"
+            ]
+        },
+        {
+            "id": 404,
+            "name": "Monochrome 04",
+            "price": "$22.99",
+            "category": "Monochrome Elegance",
+            "colors": [
+                "Monochrome"
+            ],
+            "length": "Medium",
+            "images": [
+                "/images/nails/nails-monochrome/monochrome-4-1.webp",
+                "/images/nails/nails-monochrome/monochrome-4-2.webp"
+            ]
+        },
+        {
+            "id": 405,
+            "name": "Monochrome 05",
+            "price": "$22.99",
+            "category": "Monochrome Elegance",
+            "colors": [
+                "Monochrome"
+            ],
+            "length": "Medium",
+            "images": [
+                "/images/nails/nails-monochrome/monochrome-5.webp"
+            ]
+        },
+        {
+            "id": 406,
+            "name": "Monochrome 06",
+            "price": "$22.99",
+            "category": "Monochrome Elegance",
+            "colors": [
+                "Monochrome"
+            ],
+            "length": "Medium",
+            "images": [
+                "/images/nails/nails-monochrome/monochrome-6.webp"
+            ]
+        }
+    ]
+}

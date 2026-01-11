@@ -1,0 +1,178 @@
+{
+  "header": {
+    "logoAlt": "Logo",
+    "langLabel": "EN",
+    "nav": {
+      "courses": "Courses",
+      "reviews": "Reviews",
+      "faq": "FAQ"
+    }
+  },
+  "hero": {
+    "pill": "Professional Nail Care Training",
+    "titleTop": "Dry file manicure school",
+    "titleBottom": "",
+    "description": "Master the dry manicure technique with me! Safe methods, fast and effective results — suitable for both professionals and beginners.",
+    "button": "Discover more",
+    "image": "https://images.unsplash.com/photo-1610992015732-2449b76344bc?w=800&h=600&fit=crop&crop=center",
+    "imageAlt": "Hero Image"
+  },
+  "ui": {
+    "additionalLecturesTitle": "Additional lectures in the online course:",
+    "priceLabel": "Price:",
+    "courseImageAlt": "Course Image",
+    "aboutImageAlt": "About Us Image"
+  },
+  "stats": [
+    {
+      "number": "2,000+",
+      "label": "Happy Students",
+      "icon": "Users"
+    },
+    {
+      "number": "4.9★",
+      "label": "Average Rating",
+      "icon": "Star"
+    },
+    {
+      "number": "95%",
+      "label": "Success Rate",
+      "icon": "Award"
+    },
+    {
+      "number": "24/7",
+      "label": "Support",
+      "icon": "Clock"
+    }
+  ],
+  "about": {
+    "pill": "Meet Your Instructor",
+    "titleTop": "Let's get to know",
+    "titleBottom": "each other!",
+    "image": "https://images.unsplash.com/photo-1594736797933-d0401ba2fe65?w=800&h=600&fit=crop&crop=center",
+    "imageAlt": "About Us Image",
+    "paragraphs": [
+      "My name is Yulia, and I am an instructor in dry file manicure. My goal is to teach you a safe and effective dry manicure technique that is suitable for all skin types.",
+      "With over a decade of experience in the field, I will help you master a new technique and improve your professional approach."
+    ],
+    "button": "Contact",
+    "socialProof": "2,000+ happy students",
+    "avatars": [
+      1,
+      2,
+      3
+    ]
+  },
+  "coursesSection": {
+    "pill": "Courses",
+    "title": "Our Training Programs"
+  },
+  "courses": [
+    {
+      "id": 1,
+      "title": "Online course \"Dry File Manicure: Australian Style No Cuts Eco-Friendly\"",
+      "subtitle": "Master the Art of Safe Manicures",
+      "description": "Transform your nail care routine with our comprehensive online course. Learn the revolutionary dry file technique that's taking the industry by storm.",
+      "features": [
+        "Basic course on dry file manicure",
+        "Removal of artificial coating",
+        "How to become your own nail tech",
+        "Unpacking"
+      ],
+      "additionalLectures": [
+        "Applying Nail Polish",
+        "French Manicure",
+        "From Reels"
+      ],
+      "type": "online",
+      "duration": "6 weeks",
+      "students": 1250,
+      "rating": 4.9,
+      "image": "https://images.unsplash.com/photo-1604654894610-df63bc536371?w=800&h=600&fit=crop&crop=center",
+      "badge": "Most Popular",
+      "gradient": "from-rose-500 to-pink-500",
+      "cta": "Buy",
+      "link": "https://www.udemy.com/course/file-manicure/?referralCode=2604702EB7F839613C5D%2F"
+    },
+    {
+      "id": 2,
+      "title": "Offline course \"Nail Filing\"",
+      "subtitle": "Hands-On Professional Training",
+      "description": "Get personalized instruction and practice on real models in our intensive offline course.",
+      "features": [
+        "Individual instruction with personal feedback",
+        "Practice on models with varying cuticle complexity",
+        "Official PROPILKI certification upon completion",
+        "Techniques for attracting more clients and reducing work time"
+      ],
+      "price": "one day – 220 euros, two days – 260 euros.",
+      "type": "offline",
+      "duration": "1-2 days",
+      "students": 350,
+      "rating": 5.0,
+      "image": "https://images.unsplash.com/photo-1632345031435-8727f6897d53?w=800&h=600&fit=crop&crop=center",
+      "badge": "Certification",
+      "gradient": "from-blue-500 to-purple-500",
+      "cta": "Enroll",
+      "link": "https://www.instagram.com/propilki.moldova/"
+    },
+    {
+      "id": 3,
+      "title": "Offline course \"How to become your own nail tech\"",
+      "subtitle": "Personal Nail Care Mastery",
+      "description": "Perfect for busy individuals who want salon-quality results at home in just 15 minutes.",
+      "features": [
+        "Learn how to do a perfect manicure without pain or cuts using only files.",
+        "In the offline course, we will process your cuticles step by step according to the algorithm, and I will help correct mistakes.",
+        "We will choose the optimal and fastest processing method so that you can easily take care of your hands anytime, anywhere.",
+        "The technique is simple, does not require many materials or time, and the movements are easy to remember.",
+        "If you don't have time for salons or want a manicure in 15 minutes, this course is for you. The file and interchangeable abrasive easily fit into a purse or pocket."
+      ],
+      "price": "160 euros.",
+      "type": "offline",
+      "duration": "1 day",
+      "students": 420,
+      "rating": 4.8,
+      "image": "https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?w=800&h=600&fit=crop&crop=center",
+      "badge": "Quick Results",
+      "gradient": "from-emerald-500 to-teal-500",
+      "cta": "Enroll",
+      "link": "https://www.instagram.com/propilki.moldova/"
+    }
+  ],
+  "reviews": {
+    "pill": "Reviews",
+    "title": "What Our Students Say",
+    "items": [
+      "The course offers excellent practical skills, which is very important in this profession. Yulia shares her experience throughout the learning process, teaching how to do things correctly from the very beginning and explaining the consequences of mistakes. She is very friendly, positive, and most importantly, incredibly patient. Highly recommend!",
+      "I learned about nail filing from fashion bloggers. I became very curious: “What kind of manicure is this?” and “Why has it become so trendy?” When I saw that Yulia was launching course on Dry File Manicure, I was excited that we could finally see and try this technique. As a professional who works only in a combined technique, I thought it was impossible to do a manicure without e-tools, drills, and remover. How wrong I was. Nail filing is amazing, easy, and safe. Nail filing is not just a manicure technique, it's a whole philosophy.",
+      "A really great course. I liked the informativeness, clarity of explanations, and comfort. Each lesson teaches you something new to practice. My mom and sister are happy with the manicure. A big plus is that the lessons are personal, and all the attention is on you. I recommend it to anyone who wants to quickly and comfortably master new information!"
+    ]
+  },
+  "faq": {
+    "pill": "FAQ",
+    "title": "Frequently Asked Questions",
+    "items": [
+      {
+        "question": "What is nail filing?",
+        "answer": "Nail filing is a dry manicure technique that uses a disposable file to safely remove dry skin and cuticles. This method eliminates the use of cutting tools and water."
+      },
+      {
+        "question": "Is nail filing safe?",
+        "answer": "Yes, nail filing is absolutely safe. Thanks to the special abrasive and disposable files, cuts and other injuries are avoided, making it suitable for all skin types."
+      },
+      {
+        "question": "What materials do you need?",
+        "answer": "For nail filing, you will need disposable files and auxiliary products such as talc or dehydrator to prepare the skin for treatment."
+      },
+      {
+        "question": "Can I do nail filing myself?",
+        "answer": "Of course! Our course is suitable for both professionals and beginners who want to do a manicure at home. The technique is simple to master and does not require many tools."
+      },
+      {
+        "question": "How can I enroll in the course?",
+        "answer": "To enroll in the course, go to the “Let's get to know each other!” section on our website, click the “Contact” button, and you will be redirected to Instagram, where you can leave me a message."
+      }
+    ]
+  }
+}

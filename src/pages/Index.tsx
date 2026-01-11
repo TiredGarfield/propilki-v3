@@ -23,7 +23,7 @@ const Index = () => {
 
       <Hero content={content.heroCarousel} />
 
-      {/* <Benefits content={content.benefits} /> */}
+      <Benefits content={content.benefits} />
 
       <NailCatalog content={content.catalog} />
 

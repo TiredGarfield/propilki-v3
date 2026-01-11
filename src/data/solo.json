@@ -34,58 +34,24 @@
             "Honored as a winner of the prestigious Golden Brush Sofia competition, my work has graced the runway at Kiki Ball London, appeared in leading fashion editorials, and adorned the hands of celebrities and style icons worldwide. Each set is meticulously hand-crafted, blending precision, luxury, and durability to set a new standard in the industry."
         ],
         "quote": "“I believe that beauty should be as effortless as it is extraordinary. Through press-on technology, I deliver salon-perfected results that seamlessly complement any lifestyle — wherever in the world you may be.”",
-        "image": "images/biography.jpg",
+        "image": "/images/biography.jpg",
         "imageAlt": "Artist portrait",
         "badge": {
             "line1": "10+ Years",
             "line2": "Experience"
         }
     },
-    "collections": {
-        "title": "Collections",
-        "subtitle": "Each collection tells a unique story, carefully curated to complement your individual style",
-        "items": [
-            {
-                "id": 1,
-                "name": "Classic French",
-                "description": "Timeless elegance for every occasion",
-                "image": "https://images.unsplash.com/photo-1604654894610-df63bc536371?w=600&h=600&fit=crop",
-                "count": "12 designs"
-            },
-            {
-                "id": 2,
-                "name": "Minimalist",
-                "description": "Clean lines, sophisticated simplicity",
-                "image": "https://images.unsplash.com/photo-1607349913338-552aad45f5ea?w=600&h=600&fit=crop",
-                "count": "15 designs"
-            },
-            {
-                "id": 3,
-                "name": "Statement",
-                "description": "Bold designs for confident expression",
-                "image": "https://images.unsplash.com/photo-1610992015732-2449b76344bc?w=600&h=600&fit=crop",
-                "count": "18 designs"
-            },
-            {
-                "id": 4,
-                "name": "Artistic",
-                "description": "Hand-crafted masterpieces",
-                "image": "https://images.unsplash.com/photo-1633681926022-84c23e8cb2d6?w=600&h=600&fit=crop",
-                "count": "24 designs"
-            }
-        ]
-    },
     "celebrityWorks": {
         "id": "celebrity-works",
         "title": "Collaborations with Celebrities",
         "subtitle": "Proudly featuring exclusive designs created for Catalina Cara’s albums alongside high-profile collaborations with renowned artists and influencers.",
         "images": [
-            "images/celebrity/catalina-cara-1.jpeg",
-            "images/celebrity/catalina-cara-2.jpeg",
-            "images/celebrity/catalina-cara-3.jpeg",
-            "images/celebrity/catalina-cara-4.jpeg",
-            "images/celebrity/catalina-cara-5.jpeg",
-            "images/celebrity/catalina-cara-6.jpeg"
+            "/images/celebrity/catalina-cara-1.jpeg",
+            "/images/celebrity/catalina-cara-2.jpeg",
+            "/images/celebrity/catalina-cara-3.jpeg",
+            "/images/celebrity/catalina-cara-4.jpeg",
+            "/images/celebrity/catalina-cara-5.jpeg",
+            "/images/celebrity/catalina-cara-6.jpeg"
         ],
         "pill": "Collaborations with Celebrities",
         "rightTitle": "Catalina Cara — Album Cover Shoot",
@@ -114,7 +80,7 @@
                 "Golden Brush Sofia",
                 "2018 Champion, XI International Championships in Decorating and Nail Design"
             ],
-            "image": "images/golden-brash/golden-brash.jpeg",
+            "image": "/images/golden-brash/golden-brash.jpeg",
             "imageAlt": "Golden Brush Sofia award ceremony",
             "badge": "2018 Champion"
         }
@@ -123,8 +89,8 @@
         "sectionTitle": "Competition Highlights",
         "sectionSubtitle": "KIKI BALL LONDON — March 2024",
         "images": [
-            "images/kiki-ball/kiki-ball-1.jpeg",
-            "images/kiki-ball/kiki-ball-2.jpeg"
+            "/images/kiki-ball/kiki-ball-1.jpeg",
+            "/images/kiki-ball/kiki-ball-2.jpeg"
         ],
         "eventTitle": "KIKI BALL LONDON",
         "eventDate": "March 2024",
@@ -170,37 +136,6 @@
             {
                 "question": "Do you offer international shipping?",
                 "answer": "Yes, we ship worldwide! Shipping times vary by location but typically take 7-14 business days for international orders."
-            }
-        ]
-    },
-    "featured": {
-        "title": "Featured",
-        "subtitle": "Our most coveted designs",
-        "items": [
-            {
-                "id": 101,
-                "name": "Rose Gold Elegance",
-                "price": "$24.99",
-                "originalPrice": "$34.99",
-                "image": "https://images.unsplash.com/photo-1632345031435-8727f6897d53?w=500&h=600&fit=crop&crop=faces",
-                "badge": "Bestseller",
-                "description": "Sophisticated rose gold finish with subtle shimmer"
-            },
-            {
-                "id": 102,
-                "name": "Diamond Dreams",
-                "price": "$29.99",
-                "image": "https://images.unsplash.com/photo-1604654894610-df63bc536371?w=500&h=600&fit=crop&crop=faces",
-                "badge": "New",
-                "description": "Crystalline perfection with holographic accents"
-            },
-            {
-                "id": 103,
-                "name": "Nude Perfection",
-                "price": "$19.99",
-                "image": "https://images.unsplash.com/photo-1610992015732-2449b76344bc?w=500&h=600&fit=crop&crop=faces",
-                "badge": "Popular",
-                "description": "Classic nude tones for effortless elegance"
             }
         ]
     },
@@ -299,7 +234,7 @@
             "1 Step-by-Step Instruction Card"
         ],
         "image": {
-            "src": "images/packaged-tips.webp",
+            "src": "/images/packaged-tips.webp",
             "alt": "Package contents laid out"
         },
         "badge": {
@@ -389,7 +324,7 @@
                 }
             ],
             "image": {
-                "src": "images/artistry-meets-technology.jpg",
+                "src": "/images/artistry-meets-technology.jpg",
                 "alt": "Artistry Meets Technology"
             }
         }

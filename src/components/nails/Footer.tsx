@@ -11,12 +11,12 @@ type Props = {
 
 const Footer = ({ content }: Props) => {
   const nav = [
-    { label: "Catalog", to: "/#catalog" },
-    { label: "How it works", to: "/#how-it-works" },
-    { label: "Packaging", to: "/#packaging" },
-    { label: "Reviews", to: "/#testimonials" },
-    { label: "FAQ", to: "/#faq" },
-    { label: "Online courses", to: "/online-courses" }, // <-- acesta va fi underline
+    { label: "Catalog", to: "/solo#catalog" },
+    { label: "How it works", to: "/solo#how-it-works" },
+    { label: "Packaging", to: "/solo#packaging" },
+    { label: "Reviews", to: "/solo#testimonials" },
+    { label: "FAQ", to: "/solo#faq" },
+    { label: "Online courses", to: "/" },
   ];
 
   const base =
@@ -67,9 +67,7 @@ const Footer = ({ content }: Props) => {
                 <li key={l.label}>
                   <Link
                     to={l.to}
-                    className={`${base} ${
-                      l.to === "/online-courses" ? underline : ""
-                    }`}
+                    className={`${base} ${l.to === "/" ? underline : ""}`}
                   >
                     {l.label}
                   </Link>

@@ -1,51 +1,34 @@
-import rawContent from "@/data/solo.json";
-const content = rawContent as any;
+import Header from "@/components/online-courses/Header";
+import Footer from "@/components/online-courses/Footer";
 
-import Header from "@/components/nails/Header";
-import Hero from "@/components/nails/Hero";
-import Benefits from "@/components/nails/Benefits";
-import NailCatalog from "@/components/nails/NailCatalog";
-import TipCreationProcess from "@/components/nails/TipCreationProcess";
-import HowItWorks from "@/components/nails/HowItWorks";
-import PackagingVisual from "@/components/nails/PackagingVisual";
-import Testimonials from "@/components/nails/Testimonials";
-import FAQ from "@/components/nails/FAQ";
-import Biography from "@/components/nails/Biography";
-import Championships from "@/components/nails/Championships";
-import Competitions from "@/components/nails/Competitions";
-import CelebrityWorks from "@/components/nails/CelebrityWorks";
-import Footer from "@/components/nails/Footer";
+import HeroSection from "@/components/online-courses/HeroSection";
+import AboutSection from "@/components/online-courses/AboutSection";
+import CoursesSection from "@/components/online-courses/CoursesSection";
+import ReviewsSection from "@/components/online-courses/ReviewsSection";
+import FAQSection from "@/components/online-courses/FAQSection";
+
+import rawPropilki from "@/data/propilki.json";
+const propilki = rawPropilki as any;
 
 const Index = () => {
   return (
     <div className="min-h-screen bg-white">
-      <Header content={content.header} />
+      <Header />
 
-      <Hero content={content.heroCarousel} />
+      <HeroSection hero={propilki.hero} stats={propilki.stats} />
 
-      <Benefits content={content.benefits} />
+      <AboutSection about={propilki.about} />
 
-      <NailCatalog content={content.catalog} />
+      <CoursesSection
+        section={propilki.coursesSection}
+        courses={propilki.courses}
+      />
 
-      <TipCreationProcess content={content.tipCreationProcess} />
+      <ReviewsSection reviews={propilki.reviews} />
 
-      <HowItWorks content={content.howItWorks} />
+      <FAQSection faq={propilki.faq} />
 
-      <PackagingVisual content={content.packaging} />
-
-      <Biography content={content.biography} />
-
-      <Championships content={content.championships} />
-
-      <Competitions content={content.competitions} />
-
-      <CelebrityWorks content={content.celebrityWorks} />
-
-      <Testimonials content={content.testimonials} />
-
-      <FAQ content={content.faq} />
-
-      <Footer content={content.footer} />
+      <Footer />
     </div>
   );
 };

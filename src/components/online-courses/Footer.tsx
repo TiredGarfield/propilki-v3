@@ -6,11 +6,11 @@ const Footer = () => {
     "PROPILKI online courses — structured, premium education for nail artists who want precision, confidence, and real results.";
 
   const nav = [
-    { label: "About", to: "/online-courses#about" },
-    { label: "Courses", to: "/online-courses#courses" },
-    { label: "Reviews", to: "/online-courses#reviews" },
-    { label: "FAQ", to: "/online-courses#faq" },
-    { label: "Press-on Nails", to: "/" }, // underline
+    { label: "About", to: "/#about" },
+    { label: "Courses", to: "/#courses" },
+    { label: "Reviews", to: "/#reviews" },
+    { label: "FAQ", to: "/#faq" },
+    { label: "Press-on Nails", to: "/solo" },
   ];
 
   const base =
@@ -25,7 +25,6 @@ const Footer = () => {
     <footer className="bg-neutral-900 text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-12 sm:py-14 md:py-16">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          {/* Brand */}
           <div className="col-span-1 md:col-span-2">
             <h3 className="text-2xl font-light tracking-wide mb-4">PROPILKI</h3>
 
@@ -54,7 +53,6 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Navigation */}
           <div className="md:col-span-2">
             <h4 className="font-medium mb-4 tracking-wide">Navigation</h4>
 
@@ -77,7 +75,6 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Copyright */}
         <div className="border-t border-neutral-800 mt-10 sm:mt-12 pt-6 sm:pt-8">
           <p className="text-neutral-400 font-light text-xs sm:text-sm text-center">
             © {year} PROPILKI. All rights reserved.

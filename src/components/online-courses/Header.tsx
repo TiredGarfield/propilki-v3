@@ -25,40 +25,36 @@ const Header = ({ content }: Props) => {
   const closeMenu = () => setIsMenuOpen(false);
   const mobileLabel = content?.mobileAriaLabel ?? "Open menu";
 
-  const onCoursesPage = pathname.startsWith("/online-courses");
+  const onSoloPage = pathname.startsWith("/solo");
 
   return (
     <header className="fixed top-0 w-full bg-white/95 backdrop-blur-sm border-b border-neutral-100 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="flex items-center justify-between h-14 sm:h-16">
-          <Link
-            to="/online-courses"
-            className="flex-shrink-0"
-            onClick={closeMenu}
-          >
+          <Link to="/" className="flex-shrink-0" onClick={closeMenu}>
             <h1 className="text-xl sm:text-2xl font-light tracking-wide text-neutral-900">
               PROPILKI
             </h1>
           </Link>
 
           <nav className="hidden md:flex items-center space-x-8">
-            <Link to="/online-courses#about" className={navLinkBase}>
+            <Link to="/#about" className={navLinkBase}>
               About
             </Link>
-            <Link to="/online-courses#courses" className={navLinkBase}>
+            <Link to="/#courses" className={navLinkBase}>
               Courses
             </Link>
-            <Link to="/online-courses#reviews" className={navLinkBase}>
+            <Link to="/#reviews" className={navLinkBase}>
               Reviews
             </Link>
-            <Link to="/online-courses#faq" className={navLinkBase}>
+            <Link to="/#faq" className={navLinkBase}>
               FAQ
             </Link>
 
             <Link
-              to="/"
+              to="/solo"
               className={`${pressOnLinkClass} ${
-                !onCoursesPage ? "text-black" : ""
+                onSoloPage ? "text-black" : ""
               }`}
               onClick={closeMenu}
             >
@@ -84,35 +80,31 @@ const Header = ({ content }: Props) => {
           <div className="md:hidden py-4 border-t border-neutral-100">
             <nav className="flex flex-col space-y-4">
               <Link
-                to="/online-courses#courses"
+                to="/#courses"
                 className={mobileLinkBase}
                 onClick={closeMenu}
               >
                 Courses
               </Link>
-              <Link
-                to="/online-courses#about"
-                className={mobileLinkBase}
-                onClick={closeMenu}
-              >
+              <Link to="/#about" className={mobileLinkBase} onClick={closeMenu}>
                 About
               </Link>
               <Link
-                to="/online-courses#reviews"
+                to="/#reviews"
                 className={mobileLinkBase}
                 onClick={closeMenu}
               >
                 Reviews
               </Link>
-              <Link
-                to="/online-courses#faq"
-                className={mobileLinkBase}
-                onClick={closeMenu}
-              >
+              <Link to="/#faq" className={mobileLinkBase} onClick={closeMenu}>
                 FAQ
               </Link>
 
-              <Link to="/" className={mobilePressOnLink} onClick={closeMenu}>
+              <Link
+                to="/solo"
+                className={mobilePressOnLink}
+                onClick={closeMenu}
+              >
                 Press-on Nails
               </Link>
             </nav>

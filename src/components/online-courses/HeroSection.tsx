@@ -56,10 +56,7 @@ const HeroSection = ({ hero, stats }: Props) => {
               </Button>
             ) : (
               <Button asChild className="bg-primary px-6 sm:px-8 h-11">
-                <Link
-                  to="/online-courses#about"
-                  className="inline-flex items-center"
-                >
+                <Link to="#about" className="inline-flex items-center">
                   {hero.button}
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>

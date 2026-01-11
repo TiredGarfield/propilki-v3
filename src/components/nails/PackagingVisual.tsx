@@ -10,13 +10,11 @@ type Props = {
 };
 
 const PackagingVisual = ({ content }: Props) => {
-  const imgSrc = content.image.src.startsWith("http")
-    ? content.image.src
-    : `${import.meta.env.BASE_URL}${content.image.src}`;
+  const imgSrc = `${import.meta.env.BASE_URL}images/packaged-tips.webp`;
 
   return (
     <section
-      id="packaging" 
+      id="packaging"
       className="py-14 sm:py-16 md:py-20 px-4 sm:px-6 bg-neutral-900 text-white"
     >
       <div className="max-w-7xl mx-auto">
@@ -56,6 +54,7 @@ const PackagingVisual = ({ content }: Props) => {
                 src={imgSrc}
                 alt={content.image.alt}
                 className="w-full h-full object-cover"
+                loading="lazy"
               />
             </div>
 

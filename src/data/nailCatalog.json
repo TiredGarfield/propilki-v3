@@ -3,7 +3,7 @@
         {
             "id": 101,
             "name": "Art Press-Ons 01",
-            "price": "$22.99",
+            "price": "€80",
             "category": "Art Press-Ons",
             "colors": [
                 "Mixed"
@@ -17,7 +17,7 @@
         {
             "id": 102,
             "name": "Art Press-Ons 02",
-            "price": "$24.99",
+            "price": "€80",
             "category": "Art Press-Ons",
             "colors": [
                 "Mixed"
@@ -31,7 +31,7 @@
         {
             "id": 103,
             "name": "Art Press-Ons 03",
-            "price": "$26.99",
+            "price": "€80",
             "category": "Art Press-Ons",
             "colors": [
                 "Mixed"
@@ -47,7 +47,7 @@
         {
             "id": 104,
             "name": "Art Press-Ons 04",
-            "price": "$25.99",
+            "price": "€80",
             "category": "Art Press-Ons",
             "colors": [
                 "Mixed"
@@ -61,7 +61,7 @@
         {
             "id": 105,
             "name": "Art Press-Ons 05",
-            "price": "$23.99",
+            "price": "€80",
             "category": "Art Press-Ons",
             "colors": [
                 "Mixed"
@@ -75,7 +75,7 @@
         {
             "id": 106,
             "name": "Art Press-Ons 06",
-            "price": "$24.99",
+            "price": "€80",
             "category": "Art Press-Ons",
             "colors": [
                 "Mixed"
@@ -89,7 +89,7 @@
         {
             "id": 107,
             "name": "Art Press-Ons 07",
-            "price": "$24.99",
+            "price": "€80",
             "category": "Art Press-Ons",
             "colors": [
                 "Mixed"
@@ -103,7 +103,7 @@
         {
             "id": 201,
             "name": "3D Designs 01",
-            "price": "$28.99",
+            "price": "€60",
             "category": "3D Designs",
             "colors": [
                 "Mixed"
@@ -117,7 +117,7 @@
         {
             "id": 203,
             "name": "3D Designs 03",
-            "price": "$29.99",
+            "price": "€60",
             "category": "3D Designs",
             "colors": [
                 "Mixed"
@@ -134,7 +134,7 @@
         {
             "id": 204,
             "name": "3D Designs 04",
-            "price": "$27.99",
+            "price": "€60",
             "category": "3D Designs",
             "colors": [
                 "Mixed"
@@ -148,7 +148,7 @@
         {
             "id": 205,
             "name": "3D Designs 05",
-            "price": "$28.99",
+            "price": "€60",
             "category": "3D Designs",
             "colors": [
                 "Mixed"
@@ -164,7 +164,7 @@
         {
             "id": 206,
             "name": "3D Designs 06",
-            "price": "$26.99",
+            "price": "€60",
             "category": "3D Designs",
             "colors": [
                 "Mixed"
@@ -179,7 +179,7 @@
         {
             "id": 207,
             "name": "3D Designs 07",
-            "price": "$27.99",
+            "price": "€60",
             "category": "3D Designs",
             "colors": [
                 "Mixed"
@@ -194,7 +194,7 @@
         {
             "id": 208,
             "name": "3D Designs 08",
-            "price": "$25.99",
+            "price": "€60",
             "category": "3D Designs",
             "colors": [
                 "Mixed"
@@ -209,7 +209,7 @@
         {
             "id": 209,
             "name": "3D Designs 09",
-            "price": "$25.99",
+            "price": "€60",
             "category": "3D Designs",
             "colors": [
                 "Mixed"
@@ -223,7 +223,7 @@
         {
             "id": 210,
             "name": "3D Designs 10",
-            "price": "$25.99",
+            "price": "€60",
             "category": "3D Designs",
             "colors": [
                 "Mixed"
@@ -236,7 +236,7 @@
         {
             "id": 211,
             "name": "3D Designs 11",
-            "price": "$25.99",
+            "price": "€60",
             "category": "3D Designs",
             "colors": [
                 "Mixed"
@@ -249,7 +249,7 @@
         {
             "id": 301,
             "name": "Korean-Inspired 01",
-            "price": "$18.99",
+            "price": "€50",
             "category": "Korean-Inspired Trends",
             "colors": [
                 "Mixed"
@@ -262,7 +262,7 @@
         {
             "id": 302,
             "name": "Korean-Inspired 02",
-            "price": "$19.99",
+            "price": "€50",
             "category": "Korean-Inspired Trends",
             "colors": [
                 "Mixed"
@@ -275,7 +275,7 @@
         {
             "id": 303,
             "name": "Korean-Inspired 03",
-            "price": "$20.99",
+            "price": "€50",
             "category": "Korean-Inspired Trends",
             "colors": [
                 "Mixed"
@@ -288,7 +288,7 @@
         {
             "id": 304,
             "name": "Korean-Inspired 04",
-            "price": "$21.99",
+            "price": "€50",
             "category": "Korean-Inspired Trends",
             "colors": [
                 "Mixed"
@@ -302,7 +302,7 @@
         {
             "id": 305,
             "name": "Korean-Inspired 05",
-            "price": "$21.99",
+            "price": "€50",
             "category": "Korean-Inspired Trends",
             "colors": [
                 "Mixed"
@@ -316,7 +316,7 @@
         {
             "id": 401,
             "name": "Monochrome 01",
-            "price": "$19.99",
+            "price": "€30",
             "category": "Monochrome Elegance",
             "colors": [
                 "Monochrome"
@@ -329,7 +329,7 @@
         {
             "id": 402,
             "name": "Monochrome 02",
-            "price": "$20.99",
+            "price": "€30",
             "category": "Monochrome Elegance",
             "colors": [
                 "Monochrome"
@@ -342,7 +342,7 @@
         {
             "id": 403,
             "name": "Monochrome 03",
-            "price": "$21.99",
+            "price": "€30",
             "category": "Monochrome Elegance",
             "colors": [
                 "Monochrome"
@@ -355,7 +355,7 @@
         {
             "id": 404,
             "name": "Monochrome 04",
-            "price": "$22.99",
+            "price": "€30",
             "category": "Monochrome Elegance",
             "colors": [
                 "Monochrome"
@@ -369,7 +369,7 @@
         {
             "id": 405,
             "name": "Monochrome 05",
-            "price": "$22.99",
+            "price": "€30",
             "category": "Monochrome Elegance",
             "colors": [
                 "Monochrome"
@@ -382,7 +382,7 @@
         {
             "id": 406,
             "name": "Monochrome 06",
-            "price": "$22.99",
+            "price": "€30",
             "category": "Monochrome Elegance",
             "colors": [
                 "Monochrome"

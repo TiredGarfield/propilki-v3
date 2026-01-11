@@ -30,17 +30,13 @@ const DESKTOP_PAGE_SIZE = 8; // >=640px
 
 type PageToken = number | "…";
 
-// ✅ max 4 cifre vizibile (ellipsis nu se numără)
+// max 4 cifre vizibile (ellipsis nu se numără)
 const getVisiblePages = (current: number, total: number): PageToken[] => {
   if (total <= 4) return Array.from({ length: total }, (_, i) => i + 1);
 
-  // aproape de început
   if (current <= 3) return [1, 2, 3, "…", total];
-
-  // aproape de final
   if (current >= total - 2) return [1, "…", total - 2, total - 1, total];
 
-  // mijloc
   return [1, "…", current, "…", total];
 };
 
@@ -55,7 +51,7 @@ const NailCatalog = ({ content }: Props) => {
   );
   const [page, setPage] = useState(1);
 
-  // ✅ responsive page size (Tailwind sm = 640px)
+  // responsive page size (Tailwind sm = 640px)
   const [pageSize, setPageSize] = useState<number>(() => {
     if (typeof window === "undefined") return DESKTOP_PAGE_SIZE;
     return window.matchMedia("(min-width: 640px)").matches
@@ -72,14 +68,13 @@ const NailCatalog = ({ content }: Props) => {
 
     apply();
 
-    // modern
     if (typeof mql.addEventListener === "function") {
       const onChange = () => apply();
       mql.addEventListener("change", onChange);
       return () => mql.removeEventListener("change", onChange);
     }
 
-    // legacy (Safari vechi)
+    // legacy Safari
     // eslint-disable-next-line deprecation/deprecation
     const onChangeLegacy = () => apply();
     // eslint-disable-next-line deprecation/deprecation
@@ -104,12 +99,12 @@ const NailCatalog = ({ content }: Props) => {
     return filteredProducts.slice(start, start + pageSize);
   }, [filteredProducts, page, pageSize]);
 
-  // ✅ reset page când schimbi categoria SAU pageSize
+  // reset page când schimbi categoria SAU pageSize (NU facem scroll)
   useEffect(() => {
     setPage(1);
   }, [selectedCategory, pageSize]);
 
-  // ✅ clamp page dacă se schimbă totalPages
+  // clamp page dacă se schimbă totalPages (NU facem scroll)
   useEffect(() => {
     if (page > totalPages) setPage(totalPages);
   }, [page, totalPages]);
@@ -118,17 +113,10 @@ const NailCatalog = ({ content }: Props) => {
     const el = sectionRef.current;
     if (!el) return;
 
-    const headerOffset = 72; // header fixed
+    const headerOffset = 72;
     const top = el.getBoundingClientRect().top + window.scrollY - headerOffset;
     window.scrollTo({ top, behavior: "smooth" });
   };
-
-  // ✅ scroll și când schimbi pagina/categorie/pageSize (inclusiv Next/Prev)
-  useEffect(() => {
-    const id = requestAnimationFrame(() => scrollToCatalogTop());
-    return () => cancelAnimationFrame(id);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [page, selectedCategory, pageSize]);
 
   const ensureActiveCategoryVisible = (category: string) => {
     const bar = categoryBarRef.current;
@@ -156,11 +144,12 @@ const NailCatalog = ({ content }: Props) => {
     setSelectedCategory(category);
   };
 
+  // ✅ scroll DOAR când apeși pe paginare
   const goToPage = (nextPage: number) => {
     const clamped = Math.min(totalPages, Math.max(1, nextPage));
     setPage(clamped);
 
-    // ✅ extra safety: forțează scroll chiar și pe ultima pagină (când sunt puține produse)
+    // scroll imediat la catalog (doar pe paginare)
     requestAnimationFrame(() => scrollToCatalogTop());
   };
 
@@ -176,7 +165,7 @@ const NailCatalog = ({ content }: Props) => {
           <h2 className="text-4xl md:text-5xl font-light text-neutral-900 mb-6 tracking-tight">
             {content.title}
           </h2>
-          <div className="w-24 h-px bg-neutral-300 mx-auto mb-8"></div>
+          <div className="w-24 h-px bg-neutral-300 mx-auto mb-8" />
           <p className="text-lg text-neutral-600 font-light">
             {content.subtitle}
           </p>
@@ -253,7 +242,7 @@ const NailCatalog = ({ content }: Props) => {
 
                   <div className="flex items-center justify-between mb-3">
                     <span className="text-lg font-medium text-neutral-900">
-                      {product.price}
+                     from {product.price}
                     </span>
                     <span className="text-xs text-neutral-500 font-medium tracking-wider uppercase">
                       {product.length}
@@ -276,7 +265,7 @@ const NailCatalog = ({ content }: Props) => {
           })}
         </div>
 
-        {/* ✅ Pagination: max 4 cifre vizibile + "…" (compact pe mobile) */}
+        {/* Pagination */}
         {totalPages > 1 && (
           <div className="mt-14 flex items-center justify-center">
             <div className="flex items-center gap-1 sm:gap-2 flex-nowrap overflow-x-auto no-scrollbar px-2">

@@ -5,13 +5,13 @@ const Footer = () => {
   const description =
     "PROPILKI online courses — structured, premium education for nail artists who want precision, confidence, and real results.";
 
-    const nav = [
-      { label: "About", to: "#about" },
-      { label: "Courses", to: "#courses" },
-      { label: "Reviews", to: "#reviews" },
-      { label: "FAQ", to: "#faq" },
-      { label: "Press-on Nails", to: "/" }, // underline
-    ];
+  const nav = [
+    { label: "About", to: "/online-courses#about" },
+    { label: "Courses", to: "/online-courses#courses" },
+    { label: "Reviews", to: "/online-courses#reviews" },
+    { label: "FAQ", to: "/online-courses#faq" },
+    { label: "Press-on Nails", to: "/" }, // underline
+  ];
 
   const base =
     "text-neutral-400 hover:text-white font-light transition-colors text-sm sm:text-base";
@@ -61,15 +61,16 @@ const Footer = () => {
             <ul className="grid grid-cols-2 gap-x-6 gap-y-2">
               {nav.map((l) => (
                 <li key={l.label}>
-                  {l.to.startsWith("#") ? (
-                    <a href={l.to} className={base}>
-                      {l.label}
-                    </a>
-                  ) : (
-                    <Link to={l.to} className={`${base} ${underline}`}>
-                      {l.label}
-                    </Link>
-                  )}
+                  <Link
+                    to={l.to}
+                    className={
+                      l.label === "Press-on Nails"
+                        ? `${base} ${underline}`
+                        : base
+                    }
+                  >
+                    {l.label}
+                  </Link>
                 </li>
               ))}
             </ul>

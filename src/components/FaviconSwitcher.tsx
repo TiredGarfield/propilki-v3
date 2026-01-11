@@ -17,7 +17,7 @@ const FaviconSwitcher = () => {
 
   useEffect(() => {
     if (pathname.startsWith("/solo")) {
-      setFaviconHref("solo_favicon.png");
+      setFaviconHref("solo_favicon.svg");
     } else {
       setFaviconHref("propilki_favicon.svg");
     }

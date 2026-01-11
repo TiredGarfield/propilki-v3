@@ -1,21 +1,22 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
-const getHeaderOffset = (pathname: string) => {
-  return 72;
-};
+const getHeaderOffset = () => 72;
 
 export default function ScrollToHash() {
   const { pathname, hash } = useLocation();
 
   useEffect(() => {
-    if (!hash) return;
+    if (!hash) {
+      window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+      return;
+    }
 
-    const id = decodeURIComponent(hash.replace("#", ""));
+    const id = decodeURIComponent(hash.slice(1));
     const el = document.getElementById(id);
     if (!el) return;
 
-    const headerOffset = getHeaderOffset(pathname);
+    const headerOffset = getHeaderOffset();
 
     requestAnimationFrame(() => {
       requestAnimationFrame(() => {

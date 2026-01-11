@@ -24,7 +24,6 @@ const Solo = () => {
       <TipCreationProcess content={content.tipCreationProcess} />
       <HowItWorks content={content.howItWorks} />
       <PackagingVisual content={content.packaging} />
-      <Biography content={content.biography} />
       <Championships content={content.championships} />
       <Competitions content={content.competitions} />
       <CelebrityWorks content={content.celebrityWorks} />

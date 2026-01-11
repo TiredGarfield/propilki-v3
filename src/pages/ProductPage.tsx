@@ -92,8 +92,12 @@ const ProductPage = () => {
             <h1 className="text-xl sm:text-2xl font-medium text-neutral-900 mb-4">
               Product not found
             </h1>
-            <Button onClick={() => navigate("/#catalog")} variant="outline">
-              Return to catalog
+            <Button
+              onClick={() => navigate("/solo")}
+              variant="outline"
+              type="button"
+            >
+              Return to solo
             </Button>
           </div>
         </div>
@@ -127,9 +131,10 @@ const ProductPage = () => {
 
       <div className="pt-20 sm:pt-24 pb-12 sm:pb-14 md:pb-16 px-4 sm:px-6">
         <div className="max-w-7xl mx-auto">
+          {/* ✅ Back -> /solo */}
           <Button
             variant="ghost"
-            onClick={() => navigate("/#catalog")}
+            onClick={() => navigate("/solo#catalog")}
             className="mb-5 sm:mb-6 text-neutral-600 hover:text-neutral-900"
             type="button"
           >

@@ -13,7 +13,7 @@ const FAQ = ({ content }: Props) => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section className="py-14 sm:py-16 md:py-20 px-4 sm:px-6 bg-white">
+    <section id="faq" className="py-14 sm:py-16 md:py-20 px-4 sm:px-6 bg-white">
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-10 sm:mb-12 md:mb-14">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-light text-neutral-900 mb-4 sm:mb-5 tracking-tight">

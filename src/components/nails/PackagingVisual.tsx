@@ -15,7 +15,10 @@ const PackagingVisual = ({ content }: Props) => {
     : `${import.meta.env.BASE_URL}${content.image.src}`;
 
   return (
-    <section className="py-14 sm:py-16 md:py-20 px-4 sm:px-6 bg-neutral-900 text-white">
+    <section
+      id="packaging" 
+      className="py-14 sm:py-16 md:py-20 px-4 sm:px-6 bg-neutral-900 text-white"
+    >
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-10 sm:mb-12 md:mb-14">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-light mb-4 sm:mb-5 tracking-tight">

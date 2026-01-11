@@ -72,7 +72,10 @@ const Testimonials = ({ content }: Props) => {
   }, [content.items, currentSlide, itemsPerPage]);
 
   return (
-    <section className="py-14 sm:py-16 md:py-20 px-4 sm:px-6 bg-neutral-50">
+    <section
+      id="testimonials" 
+      className="py-14 sm:py-16 md:py-20 px-4 sm:px-6 bg-neutral-50"
+    >
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-10 sm:mb-12 md:mb-14">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-light text-neutral-900 mb-4 sm:mb-5 tracking-tight">

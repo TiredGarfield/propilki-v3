@@ -1,80 +1,93 @@
-import { Instagram, Facebook, Mail } from "lucide-react";
-
-type FooterSocialType = "instagram" | "facebook" | "mail";
+import { useState } from "react";
+import { Menu, X } from "lucide-react";
+import { Link, useLocation } from "react-router-dom";
 
 type Props = {
   content: {
-    brandTitle: string;
-    brandDescription: string;
-    social: { type: FooterSocialType; href: string }[];
-    columns: { title: string; links: { label: string; href: string }[] }[];
-    copyright: string;
+    logoText: string;
+    mobileAriaLabel: string;
   };
 };
 
-const Footer = ({ content }: Props) => {
-  const getIcon = (type: FooterSocialType) => {
-    if (type === "instagram") return Instagram;
-    if (type === "facebook") return Facebook;
-    return Mail;
-  };
+const navLinkClass =
+  "text-neutral-600 hover:text-black text-sm font-medium tracking-wide transition-colors";
+
+const Header = ({ content }: Props) => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const location = useLocation();
+
+  const closeMenu = () => setIsMenuOpen(false);
+
+  // ✅ dacă ești deja pe "/" putem folosi doar "#..."
+  // ✅ dacă ești pe altă pagină, mergem către "/#..."
+  const homeHash = (hash: string) =>
+    location.pathname === "/" ? `/${hash}` : `/${hash}`;
+
+  const links = [
+    { label: "Catalog", to: homeHash("#catalog") },
+    { label: "How it works", to: homeHash("#how-it-works") },
+    { label: "Packaging", to: homeHash("#packaging") },
+    { label: "Reviews", to: homeHash("#testimonials") },
+    { label: "FAQ", to: homeHash("#faq") },
+    { label: "Online courses", to: "/online-courses" },
+  ];
 
   return (
-    <footer className="bg-neutral-900 text-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-12 sm:py-14 md:py-16">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          <div className="col-span-1 md:col-span-2">
-            <h3 className="text-2xl font-light tracking-wide mb-4">
-              {content.brandTitle}
-            </h3>
-            <p className="text-neutral-400 font-light leading-relaxed mb-6 max-w-md text-sm sm:text-base">
-              {content.brandDescription}
-            </p>
+    <header className="fixed top-0 w-full bg-white/95 backdrop-blur-sm border-b border-neutral-100 z-50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+        <div className="flex items-center justify-between h-14 sm:h-16">
+          <Link to="/" className="flex-shrink-0" onClick={closeMenu}>
+            <h1 className="text-xl sm:text-2xl font-light tracking-wide text-neutral-900">
+              {content.logoText}
+            </h1>
+          </Link>
 
-            <div className="flex space-x-4">
-              {content.social.map((s, i) => {
-                const Icon = getIcon(s.type);
-                return (
-                  <a
-                    key={i}
-                    href={s.href}
-                    className="w-10 h-10 bg-neutral-800 rounded-full flex items-center justify-center hover:bg-neutral-700 transition-colors"
-                    aria-label={s.type}
-                  >
-                    <Icon className="h-4 w-4" />
-                  </a>
-                );
-              })}
-            </div>
+          <nav className="hidden md:flex items-center space-x-8">
+            {links.map((l) => (
+              <Link
+                key={l.label}
+                to={l.to}
+                className={navLinkClass}
+                onClick={closeMenu}
+              >
+                {l.label}
+              </Link>
+            ))}
+          </nav>
+
+          <button
+            className="md:hidden p-2 text-neutral-600 hover:text-black transition-colors"
+            onClick={() => setIsMenuOpen((v) => !v)}
+            aria-label={content.mobileAriaLabel}
+            type="button"
+          >
+            {isMenuOpen ? (
+              <X className="h-5 w-5" />
+            ) : (
+              <Menu className="h-5 w-5" />
+            )}
+          </button>
+        </div>
+
+        {isMenuOpen ? (
+          <div className="md:hidden py-4 border-t border-neutral-100">
+            <nav className="flex flex-col space-y-4">
+              {links.map((l) => (
+                <Link
+                  key={l.label}
+                  to={l.to}
+                  className={navLinkClass}
+                  onClick={closeMenu}
+                >
+                  {l.label}
+                </Link>
+              ))}
+            </nav>
           </div>
-
-          {content.columns.map((col, idx) => (
-            <div key={idx}>
-              <h4 className="font-medium mb-4 tracking-wide">{col.title}</h4>
-              <ul className="space-y-2">
-                {col.links.map((l, i) => (
-                  <li key={i}>
-                    <a
-                      href={l.href}
-                      className="text-neutral-400 hover:text-white font-light transition-colors text-sm sm:text-base"
-                    >
-                      {l.label}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
-
-        <div className="border-t border-neutral-800 mt-10 sm:mt-12 pt-6 sm:pt-8">
-          <p className="text-neutral-400 font-light text-xs sm:text-sm text-center">
-            {content.copyright}
-          </p>
-        </div>
+        ) : null}
       </div>
-    </footer>
+    </header>
   );
 };
 
-export default Footer;
+export default Header;

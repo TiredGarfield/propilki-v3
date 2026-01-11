@@ -2,11 +2,20 @@ type Props = {
   content: any;
 };
 
+const isAbsoluteUrl = (v: string) => /^https?:\/\//i.test(v);
+
+const resolveImg = (src?: string) => {
+  if (!src) return `${import.meta.env.BASE_URL}images/biography.jpg`;
+  if (isAbsoluteUrl(src)) return src;
+  const cleaned = src.startsWith("/") ? src.slice(1) : src;
+  return `${import.meta.env.BASE_URL}${cleaned}`;
+};
+
 const Biography = ({ content }: Props) => {
   const id = content?.id ?? "biography";
   const paragraphs = (content?.paragraphs ?? []) as string[];
 
-  const imgSrc = `${import.meta.env.BASE_URL}images/biography.jpg`;
+  const imgSrc = resolveImg(content?.image);
 
   return (
     <section id={id} className="py-14 sm:py-16 md:py-20 px-4 sm:px-6 bg-white">
@@ -33,6 +42,7 @@ const Biography = ({ content }: Props) => {
                 src={imgSrc}
                 alt={content?.imageAlt ?? "Artist portrait"}
                 className="w-full h-full object-cover object-bottom"
+                loading="lazy"
               />
             </div>
 

@@ -10,14 +10,15 @@ type Props = {
     titleBottom: string;
     paragraphs: string[];
     button: string;
-    avatars: Array<string | number>;
     socialProof: string;
     buttonHref?: string;
   };
 };
 
 const AboutSection = ({ about }: Props) => {
-  const imgSrc = `${import.meta.env.BASE_URL}images/biography.jpg`;
+  const imgSrc = `${import.meta.env.BASE_URL}${
+    about.image.startsWith("/") ? about.image.slice(1) : about.image
+  }`;
 
   return (
     <section

@@ -11,17 +11,20 @@ type Props = {
     description: string;
     button: string;
     buttonHref?: string;
+    image: string;
     imageAlt?: string;
   };
-  stats: Array<{
+  stats: {
     icon: string;
     number: string;
     label: string;
-  }>;
+  }[];
 };
 
 const HeroSection = ({ hero, stats }: Props) => {
-  const imageSrc = `${import.meta.env.BASE_URL}images/hero.jpeg`;
+  const imageSrc = `${import.meta.env.BASE_URL}${
+    hero.image.startsWith("/") ? hero.image.slice(1) : hero.image
+  }`;
 
   return (
     <section className="pt-24 sm:pt-24 md:pt-28 pb-12 sm:pb-14 md:pb-16 px-4 sm:px-6 bg-white">
@@ -53,7 +56,10 @@ const HeroSection = ({ hero, stats }: Props) => {
               </Button>
             ) : (
               <Button asChild className="bg-primary px-6 sm:px-8 h-11">
-                <Link to="#about" className="inline-flex items-center">
+                <Link
+                  to="/online-courses#about"
+                  className="inline-flex items-center"
+                >
                   {hero.button}
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>

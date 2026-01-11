@@ -9,8 +9,12 @@ type Props = {
   };
 };
 
+const isAbsoluteUrl = (v: string) => /^https?:\/\//i.test(v);
+
 const PackagingVisual = ({ content }: Props) => {
-  const imgSrc = `${import.meta.env.BASE_URL}images/packaged-tips.webp`;
+  const imgSrc = isAbsoluteUrl(content.image.src)
+    ? content.image.src
+    : `${import.meta.env.BASE_URL}${content.image.src}`;
 
   return (
     <section

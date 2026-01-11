@@ -1,3 +1,4 @@
+// src/components/online-courses/CourseCard.tsx
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import CourseFeatures from "./CourseFeatures";
@@ -7,7 +8,7 @@ type Course = {
   id: number | string;
   title: string;
   description: string;
-  image?: string;
+  image: string;
   features: string[];
   additionalLectures?: string[];
   price?: string;
@@ -20,20 +21,8 @@ type Props = {
   reverse?: boolean;
 };
 
-const isAbsoluteUrl = (v: string) => /^https?:\/\//i.test(v);
-
-const resolveImg = (src?: string) => {
-  const fallback = "images/online-courses/course-placeholder.webp";
-  const value = src && src.trim().length ? src : fallback;
-
-  if (isAbsoluteUrl(value)) return value;
-
-  const cleaned = value.startsWith("/") ? value.slice(1) : value;
-  return `${import.meta.env.BASE_URL}${cleaned}`;
-};
-
 const CourseCard = ({ course, reverse }: Props) => {
-  const imageSrc = resolveImg(course.image);
+  const imageSrc = `${import.meta.env.BASE_URL}${course.image}`;
 
   const handleClick = () => {
     if (course.link) window.open(course.link, "_blank");
@@ -43,7 +32,6 @@ const CourseCard = ({ course, reverse }: Props) => {
     <Card className="group border border-border elegant-shadow hover:shadow-lg">
       <div className="p-5 sm:p-7 md:p-8 lg:p-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-12 items-center">
-          {/* IMAGE */}
           <div className={reverse ? "lg:order-2" : "lg:order-1"}>
             <div className="relative aspect-video bg-muted rounded-lg overflow-hidden">
               <img
@@ -55,7 +43,6 @@ const CourseCard = ({ course, reverse }: Props) => {
             </div>
           </div>
 
-          {/* CONTENT */}
           <div className={reverse ? "lg:order-1" : "lg:order-2"}>
             <h3 className="text-xl sm:text-2xl lg:text-3xl font-light text-foreground mb-3 sm:mb-4 leading-tight">
               {course.title}

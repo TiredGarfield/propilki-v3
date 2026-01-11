@@ -3,17 +3,17 @@ const content = rawContent as any;
 
 import Header from "@/components/nails/Header";
 import Hero from "@/components/nails/Hero";
-import Biography from "@/components/nails/Biography";
 import Benefits from "@/components/nails/Benefits";
+import NailCatalog from "@/components/nails/NailCatalog";
 import TipCreationProcess from "@/components/nails/TipCreationProcess";
 import HowItWorks from "@/components/nails/HowItWorks";
-import NailCatalog from "@/components/nails/NailCatalog";
-import CelebrityWorks from "@/components/nails/CelebrityWorks";
-import Championships from "@/components/nails/Championships";
-import Competitions from "@/components/nails/Competitions";
 import PackagingVisual from "@/components/nails/PackagingVisual";
 import Testimonials from "@/components/nails/Testimonials";
 import FAQ from "@/components/nails/FAQ";
+import Biography from "@/components/nails/Biography";
+import Championships from "@/components/nails/Championships";
+import Competitions from "@/components/nails/Competitions";
+import CelebrityWorks from "@/components/nails/CelebrityWorks";
 import Footer from "@/components/nails/Footer";
 
 const Index = () => {
@@ -23,23 +23,23 @@ const Index = () => {
 
       <Hero content={content.heroCarousel} />
 
+      {/* <Benefits content={content.benefits} /> */}
+
       <NailCatalog content={content.catalog} />
-
-      <Biography content={content.biography} />
-
-      <Benefits content={content.benefits} />
 
       <TipCreationProcess content={content.tipCreationProcess} />
 
       <HowItWorks content={content.howItWorks} />
 
-      <CelebrityWorks content={content.celebrityWorks} />
+      <PackagingVisual content={content.packaging} />
+
+      <Biography content={content.biography} />
 
       <Championships content={content.championships} />
 
       <Competitions content={content.competitions} />
 
-      <PackagingVisual content={content.packaging} />
+      <CelebrityWorks content={content.celebrityWorks} />
 
       <Testimonials content={content.testimonials} />
 

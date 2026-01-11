@@ -1,6 +1,3 @@
-import rawContent from "@/data/solo.json";
-const content = rawContent as any;
-
 import { useEffect, useMemo, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useSwipeable } from "react-swipeable";
@@ -8,12 +5,15 @@ import { useSwipeable } from "react-swipeable";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { ArrowLeft, Star, ChevronLeft, ChevronRight } from "lucide-react";
+import { ArrowLeft, ChevronLeft, ChevronRight } from "lucide-react";
 
 import Header from "@/components/nails/Header";
 import Footer from "@/components/nails/Footer";
 
+import rawContent from "@/data/solo.json";
 import catalog from "@/data/nailCatalog.json";
+
+const content = rawContent as any;
 
 type NailProduct = {
   id: number;
@@ -26,8 +26,6 @@ type NailProduct = {
   description?: string;
   badge?: string;
   originalPrice?: string;
-  rating?: number;
-  reviews?: number;
   inStock?: boolean;
 };
 
@@ -107,9 +105,21 @@ const ProductPage = () => {
   const activeImage =
     gallery[selectedImageIndex] ?? `${import.meta.env.BASE_URL}placeholder.svg`;
 
-  const rating = product.rating ?? 4.9;
-  const reviews = product.reviews ?? 0;
-  const inStock = product.inStock ?? true;
+  const availability =
+    product.inStock === false
+      ? "Out of stock"
+      : product.inStock === true
+      ? "Available"
+      : "Handcrafted on demand";
+
+  const availabilityClass =
+    product.inStock === false
+      ? "text-red-600"
+      : product.inStock === true
+      ? "text-green-600"
+      : "text-neutral-600";
+
+  const fromPrice = `From ${product.price}`;
 
   return (
     <div className="min-h-screen bg-white">
@@ -190,6 +200,7 @@ const ProductPage = () => {
                           : "border-neutral-200 hover:border-neutral-400"
                       }`}
                       type="button"
+                      aria-label={`Select image ${index + 1}`}
                     >
                       <img
                         src={image}
@@ -214,30 +225,9 @@ const ProductPage = () => {
                   {product.name}
                 </h1>
 
-                <div className="flex items-center gap-4 mb-6">
-                  <div className="flex items-center gap-2">
-                    <div className="flex">
-                      {[...Array(5)].map((_, i) => (
-                        <Star
-                          key={i}
-                          className={`h-4 w-4 ${
-                            i < Math.floor(rating)
-                              ? "fill-yellow-400 text-yellow-400"
-                              : "text-neutral-300"
-                          }`}
-                        />
-                      ))}
-                    </div>
-                    <span className="text-sm text-neutral-600">
-                      {rating}
-                      {reviews ? ` (${reviews} reviews)` : ""}
-                    </span>
-                  </div>
-                </div>
-
                 <div className="flex items-center gap-3 mb-6">
                   <span className="text-2xl font-medium text-neutral-900">
-                    {product.price}
+                    {fromPrice}
                   </span>
                   {product.originalPrice && (
                     <span className="text-lg text-neutral-400 line-through">
@@ -266,6 +256,12 @@ const ProductPage = () => {
                     </h3>
                     <div className="space-y-2">
                       <div className="flex justify-between gap-6">
+                        <span className="text-neutral-600">Product ID:</span>
+                        <span className="text-neutral-900 text-right">
+                          {product.id}
+                        </span>
+                      </div>
+                      <div className="flex justify-between gap-6">
                         <span className="text-neutral-600">Category:</span>
                         <span className="text-neutral-900 text-right">
                           {product.category}
@@ -284,13 +280,9 @@ const ProductPage = () => {
                         </span>
                       </div>
                       <div className="flex justify-between gap-6">
-                        <span className="text-neutral-600">Stock:</span>
-                        <span
-                          className={
-                            inStock ? "text-green-600" : "text-red-600"
-                          }
-                        >
-                          {inStock ? "In Stock" : "Out of Stock"}
+                        <span className="text-neutral-600">Availability:</span>
+                        <span className={`${availabilityClass} text-right`}>
+                          {availability}
                         </span>
                       </div>
                     </div>
@@ -301,11 +293,13 @@ const ProductPage = () => {
                       className="w-full bg-neutral-900 hover:bg-neutral-800 text-white h-12 rounded-none"
                       size="lg"
                       onClick={() =>
-                        window.open("https://wa.me/message", "_blank")
+                        window.open(
+                          "https://www.instagram.com/solo.lo_nails/",
+                          "_blank"
+                        )
                       }
-                      disabled={!inStock}
                     >
-                      Order Now — {product.price}
+                      Order now - {fromPrice}
                     </Button>
                   </div>
                 </div>

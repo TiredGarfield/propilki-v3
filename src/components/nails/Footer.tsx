@@ -21,13 +21,13 @@ const Footer = ({ content }: Props) => {
 
   return (
     <footer className="bg-neutral-900 text-white">
-      <div className="max-w-7xl mx-auto px-6 py-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-12 sm:py-14 md:py-16">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="col-span-1 md:col-span-2">
             <h3 className="text-2xl font-light tracking-wide mb-4">
               {content.brandTitle}
             </h3>
-            <p className="text-neutral-400 font-light leading-relaxed mb-6 max-w-md">
+            <p className="text-neutral-400 font-light leading-relaxed mb-6 max-w-md text-sm sm:text-base">
               {content.brandDescription}
             </p>
 
@@ -39,6 +39,7 @@ const Footer = ({ content }: Props) => {
                     key={i}
                     href={s.href}
                     className="w-10 h-10 bg-neutral-800 rounded-full flex items-center justify-center hover:bg-neutral-700 transition-colors"
+                    aria-label={s.type}
                   >
                     <Icon className="h-4 w-4" />
                   </a>
@@ -55,7 +56,7 @@ const Footer = ({ content }: Props) => {
                   <li key={i}>
                     <a
                       href={l.href}
-                      className="text-neutral-400 hover:text-white font-light transition-colors"
+                      className="text-neutral-400 hover:text-white font-light transition-colors text-sm sm:text-base"
                     >
                       {l.label}
                     </a>
@@ -66,8 +67,8 @@ const Footer = ({ content }: Props) => {
           ))}
         </div>
 
-        <div className="border-t border-neutral-800 mt-12 pt-8">
-          <p className="text-neutral-400 font-light text-sm text-center">
+        <div className="border-t border-neutral-800 mt-10 sm:mt-12 pt-6 sm:pt-8">
+          <p className="text-neutral-400 font-light text-xs sm:text-sm text-center">
             {content.copyright}
           </p>
         </div>

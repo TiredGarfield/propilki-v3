@@ -25,7 +25,24 @@ type Props = {
   };
 };
 
-const PAGE_SIZE = 8;
+const MOBILE_PAGE_SIZE = 4; // <640px
+const DESKTOP_PAGE_SIZE = 8; // >=640px
+
+type PageToken = number | "…";
+
+// ✅ max 4 cifre vizibile (ellipsis nu se numără)
+const getVisiblePages = (current: number, total: number): PageToken[] => {
+  if (total <= 4) return Array.from({ length: total }, (_, i) => i + 1);
+
+  // aproape de început
+  if (current <= 3) return [1, 2, 3, "…", total];
+
+  // aproape de final
+  if (current >= total - 2) return [1, "…", total - 2, total - 1, total];
+
+  // mijloc
+  return [1, "…", current, "…", total];
+};
 
 const NailCatalog = ({ content }: Props) => {
   const navigate = useNavigate();
@@ -34,9 +51,42 @@ const NailCatalog = ({ content }: Props) => {
   const categoryBarRef = useRef<HTMLDivElement | null>(null);
 
   const [selectedCategory, setSelectedCategory] = useState<string>(
-    content.categoryOrder[0] ?? "All"
+    content.categoryOrder?.[0] ?? "All"
   );
   const [page, setPage] = useState(1);
+
+  // ✅ responsive page size (Tailwind sm = 640px)
+  const [pageSize, setPageSize] = useState<number>(() => {
+    if (typeof window === "undefined") return DESKTOP_PAGE_SIZE;
+    return window.matchMedia("(min-width: 640px)").matches
+      ? DESKTOP_PAGE_SIZE
+      : MOBILE_PAGE_SIZE;
+  });
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+
+    const mql = window.matchMedia("(min-width: 640px)");
+    const apply = () =>
+      setPageSize(mql.matches ? DESKTOP_PAGE_SIZE : MOBILE_PAGE_SIZE);
+
+    apply();
+
+    // modern
+    if (typeof mql.addEventListener === "function") {
+      const onChange = () => apply();
+      mql.addEventListener("change", onChange);
+      return () => mql.removeEventListener("change", onChange);
+    }
+
+    // legacy (Safari vechi)
+    // eslint-disable-next-line deprecation/deprecation
+    const onChangeLegacy = () => apply();
+    // eslint-disable-next-line deprecation/deprecation
+    mql.addListener(onChangeLegacy);
+    // eslint-disable-next-line deprecation/deprecation
+    return () => mql.removeListener(onChangeLegacy);
+  }, []);
 
   const products = (catalog.products as NailProduct[]) ?? [];
 
@@ -45,20 +95,21 @@ const NailCatalog = ({ content }: Props) => {
     return products.filter((p) => p.category === selectedCategory);
   }, [products, selectedCategory]);
 
-  const totalPages = Math.max(
-    1,
-    Math.ceil(filteredProducts.length / PAGE_SIZE)
-  );
+  const totalPages = useMemo(() => {
+    return Math.max(1, Math.ceil(filteredProducts.length / pageSize));
+  }, [filteredProducts.length, pageSize]);
 
   const pageItems = useMemo(() => {
-    const start = (page - 1) * PAGE_SIZE;
-    return filteredProducts.slice(start, start + PAGE_SIZE);
-  }, [filteredProducts, page]);
+    const start = (page - 1) * pageSize;
+    return filteredProducts.slice(start, start + pageSize);
+  }, [filteredProducts, page, pageSize]);
 
+  // ✅ reset page când schimbi categoria SAU pageSize
   useEffect(() => {
     setPage(1);
-  }, [selectedCategory]);
+  }, [selectedCategory, pageSize]);
 
+  // ✅ clamp page dacă se schimbă totalPages
   useEffect(() => {
     if (page > totalPages) setPage(totalPages);
   }, [page, totalPages]);
@@ -67,15 +118,17 @@ const NailCatalog = ({ content }: Props) => {
     const el = sectionRef.current;
     if (!el) return;
 
-    const headerOffset = 72;
+    const headerOffset = 72; // header fixed
     const top = el.getBoundingClientRect().top + window.scrollY - headerOffset;
     window.scrollTo({ top, behavior: "smooth" });
   };
 
+  // ✅ scroll și când schimbi pagina/categorie/pageSize (inclusiv Next/Prev)
   useEffect(() => {
     const id = requestAnimationFrame(() => scrollToCatalogTop());
     return () => cancelAnimationFrame(id);
-  }, [page, selectedCategory]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [page, selectedCategory, pageSize]);
 
   const ensureActiveCategoryVisible = (category: string) => {
     const bar = categoryBarRef.current;
@@ -106,7 +159,15 @@ const NailCatalog = ({ content }: Props) => {
   const goToPage = (nextPage: number) => {
     const clamped = Math.min(totalPages, Math.max(1, nextPage));
     setPage(clamped);
+
+    // ✅ extra safety: forțează scroll chiar și pe ultima pagină (când sunt puține produse)
+    requestAnimationFrame(() => scrollToCatalogTop());
   };
+
+  const visiblePages = useMemo<PageToken[]>(
+    () => getVisiblePages(page, totalPages),
+    [page, totalPages]
+  );
 
   return (
     <section id="catalog" ref={sectionRef} className="py-24 px-6 bg-white">
@@ -138,6 +199,7 @@ const NailCatalog = ({ content }: Props) => {
                       ? "bg-black text-white hover:bg-neutral-800"
                       : "text-neutral-600 hover:text-black hover:bg-neutral-50"
                   }`}
+                  type="button"
                 >
                   {category}
                 </Button>
@@ -146,6 +208,7 @@ const NailCatalog = ({ content }: Props) => {
           </div>
         </div>
 
+        {/* ✅ Tailwind standard grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
           {pageItems.map((product) => {
             const coverImage = product.images?.[0]
@@ -165,6 +228,7 @@ const NailCatalog = ({ content }: Props) => {
                     src={coverImage}
                     alt={product.name}
                     className="w-full h-72 object-cover group-hover:scale-105 transition-transform duration-700"
+                    loading="lazy"
                   />
 
                   <span className="absolute top-4 left-4 bg-white/90 text-neutral-700 text-xs font-medium px-2 py-1 tracking-wider uppercase">
@@ -212,42 +276,58 @@ const NailCatalog = ({ content }: Props) => {
           })}
         </div>
 
+        {/* ✅ Pagination: max 4 cifre vizibile + "…" (compact pe mobile) */}
         {totalPages > 1 && (
-          <div className="mt-14 flex flex-wrap items-center justify-center gap-2">
-            <Button
-              variant="ghost"
-              onClick={() => goToPage(page - 1)}
-              disabled={page <= 1}
-              className="rounded-none"
-            >
-              <ChevronLeft className="h-4 w-4 mr-2" />
-              Prev
-            </Button>
-
-            {Array.from({ length: totalPages }, (_, i) => i + 1).map((p) => (
-              <button
-                key={p}
+          <div className="mt-14 flex items-center justify-center">
+            <div className="flex items-center gap-1 sm:gap-2 flex-nowrap overflow-x-auto no-scrollbar px-2">
+              <Button
+                variant="ghost"
+                onClick={() => goToPage(page - 1)}
+                disabled={page <= 1}
+                className="rounded-none px-2"
                 type="button"
-                onClick={() => goToPage(p)}
-                className={`h-10 min-w-10 px-3 text-sm font-medium tracking-wide border transition ${
-                  p === page
-                    ? "bg-black text-white border-black"
-                    : "bg-white text-neutral-700 border-neutral-200 hover:border-neutral-400"
-                }`}
+                aria-label="Previous page"
               >
-                {p}
-              </button>
-            ))}
+                <ChevronLeft className="h-4 w-4" />
+                <span className="hidden sm:inline ml-1">Prev</span>
+              </Button>
 
-            <Button
-              variant="ghost"
-              onClick={() => goToPage(page + 1)}
-              disabled={page >= totalPages}
-              className="rounded-none"
-            >
-              Next
-              <ChevronRight className="h-4 w-4 ml-2" />
-            </Button>
+              {visiblePages.map((token, i) =>
+                token === "…" ? (
+                  <span
+                    key={`dots-${i}`}
+                    className="px-1 sm:px-2 text-neutral-400 text-sm select-none"
+                  >
+                    …
+                  </span>
+                ) : (
+                  <button
+                    key={token}
+                    type="button"
+                    onClick={() => goToPage(token)}
+                    className={`h-10 min-w-10 px-3 text-sm font-medium tracking-wide border transition ${
+                      token === page
+                        ? "bg-black text-white border-black"
+                        : "bg-white text-neutral-700 border-neutral-200 hover:border-neutral-400"
+                    }`}
+                  >
+                    {token}
+                  </button>
+                )
+              )}
+
+              <Button
+                variant="ghost"
+                onClick={() => goToPage(page + 1)}
+                disabled={page >= totalPages}
+                className="rounded-none px-2"
+                type="button"
+                aria-label="Next page"
+              >
+                <span className="hidden sm:inline mr-1">Next</span>
+                <ChevronRight className="h-4 w-4" />
+              </Button>
+            </div>
           </div>
         )}
       </div>

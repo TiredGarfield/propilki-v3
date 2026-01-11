@@ -5,20 +5,21 @@ export default function ScrollToHash() {
   const { pathname, hash } = useLocation();
 
   useEffect(() => {
+    const headerOffset = 72;
+
     if (!hash) {
       window.scrollTo({ top: 0, behavior: "smooth" });
       return;
     }
 
+    const id = hash.replace("#", "");
+    const el = document.getElementById(id);
+    if (!el) return;
+
     requestAnimationFrame(() => {
-      const id = hash.replace("#", "");
-      const el = document.getElementById(id);
-      if (!el) return;
-
-      const yOffset = 0;
-      const y = el.getBoundingClientRect().top + window.scrollY - yOffset;
-
-      window.scrollTo({ top: y, behavior: "smooth" });
+      const top =
+        el.getBoundingClientRect().top + window.scrollY - headerOffset;
+      window.scrollTo({ top, behavior: "smooth" });
     });
   }, [pathname, hash]);
 

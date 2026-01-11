@@ -3,20 +3,46 @@ import { Button } from "@/components/ui/button";
 import CourseFeatures from "./CourseFeatures";
 import AdditionalLectures from "./AdditionalLectures";
 
-const CourseCard = ({ course, reverse }) => {
-  const imageSrc =
-    course.image || "/images/online-courses/course-placeholder.webp";
+type Course = {
+  id: number | string;
+  title: string;
+  description: string;
+  image?: string;
+  features: string[];
+  additionalLectures?: string[];
+  price?: string;
+  cta: string;
+  link?: string;
+};
+
+type Props = {
+  course: Course;
+  reverse?: boolean;
+};
+
+const isAbsoluteUrl = (v: string) => /^https?:\/\//i.test(v);
+
+const resolveImg = (src?: string) => {
+  const fallback = "images/online-courses/course-placeholder.webp";
+  const value = src && src.trim().length ? src : fallback;
+
+  if (isAbsoluteUrl(value)) return value;
+
+  const cleaned = value.startsWith("/") ? value.slice(1) : value;
+  return `${import.meta.env.BASE_URL}${cleaned}`;
+};
+
+const CourseCard = ({ course, reverse }: Props) => {
+  const imageSrc = resolveImg(course.image);
 
   const handleClick = () => {
-    if (course.link) {
-      window.open(course.link, "_blank");
-    }
+    if (course.link) window.open(course.link, "_blank");
   };
 
   return (
     <Card className="group border border-border elegant-shadow hover:shadow-lg">
-      <div className="p-8 lg:p-12">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <div className="p-5 sm:p-7 md:p-8 lg:p-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-12 items-center">
           {/* IMAGE */}
           <div className={reverse ? "lg:order-2" : "lg:order-1"}>
             <div className="relative aspect-video bg-muted rounded-lg overflow-hidden">
@@ -24,38 +50,44 @@ const CourseCard = ({ course, reverse }) => {
                 src={imageSrc}
                 alt={course.title}
                 className="w-full h-full object-cover"
+                loading="lazy"
               />
             </div>
           </div>
 
           {/* CONTENT */}
           <div className={reverse ? "lg:order-1" : "lg:order-2"}>
-            <h3 className="text-2xl lg:text-3xl font-light text-foreground mb-4">
+            <h3 className="text-xl sm:text-2xl lg:text-3xl font-light text-foreground mb-3 sm:mb-4 leading-tight">
               {course.title}
             </h3>
 
-            <p className="text-muted-foreground mb-8">{course.description}</p>
+            <p className="text-sm sm:text-base text-muted-foreground mb-6 sm:mb-7 leading-relaxed">
+              {course.description}
+            </p>
 
             <CourseFeatures features={course.features} />
 
-            {course.additionalLectures && (
+            {course.additionalLectures?.length ? (
               <AdditionalLectures
                 title="Additional lectures in the online course:"
                 lectures={course.additionalLectures}
               />
-            )}
+            ) : null}
 
-            <div className="flex items-center justify-between pt-6 border-t border-border">
-              {course.price && (
-                <p className="text-xl font-light text-foreground">
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 sm:gap-4 pt-4 border-t border-border">
+              {course.price ? (
+                <p className="text-base sm:text-lg font-light text-foreground">
                   <span className="font-medium">Price:</span>{" "}
                   {course.price.replace(/^Price:\s*/i, "")}
                 </p>
+              ) : (
+                <span />
               )}
 
               <Button
                 onClick={handleClick}
-                className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-3 rounded-lg"
+                className="bg-primary hover:bg-primary/90 text-primary-foreground px-6 sm:px-8 h-11 rounded-lg"
+                type="button"
               >
                 {course.cta}
               </Button>

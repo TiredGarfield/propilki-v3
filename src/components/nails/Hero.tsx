@@ -16,6 +16,7 @@ const Hero = ({ content }: Props) => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   useEffect(() => {
+    if (!content.slides.length) return;
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % content.slides.length);
     }, content.autoPlayMs);
@@ -24,8 +25,9 @@ const Hero = ({ content }: Props) => {
   }, [content.autoPlayMs, content.slides.length]);
 
   return (
-    <section className="relative w-full h-screen overflow-hidden">
+    <section className="relative w-full h-[78vh] sm:h-[86vh] md:h-screen overflow-hidden">
       <div className="relative w-full h-full">
+        {/* Slides */}
         <div className="relative overflow-hidden h-full">
           <div
             className="flex transition-transform duration-500 ease-out h-full"
@@ -39,10 +41,15 @@ const Hero = ({ content }: Props) => {
                     alt={slide.name}
                     className="w-full h-full object-cover"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                  <div className="absolute bottom-8 left-8 right-8 text-white">
-                    <h3 className="text-4xl font-medium mb-4">{slide.name}</h3>
-                    <p className="text-lg opacity-90 leading-relaxed max-w-2xl">
+
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+
+                  {/* Text */}
+                  <div className="absolute bottom-16 sm:bottom-20 left-4 sm:left-8 right-4 sm:right-8 text-white">
+                    <h3 className="text-2xl sm:text-4xl font-medium mb-3 sm:mb-4">
+                      {slide.name}
+                    </h3>
+                    <p className="text-sm sm:text-lg opacity-90 leading-relaxed max-w-2xl">
                       {slide.description}
                     </p>
                   </div>
@@ -52,15 +59,28 @@ const Hero = ({ content }: Props) => {
           </div>
         </div>
 
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-3 z-10">
+        {/* Dots – mutați mai jos + mai mult spațiu pe mobile */}
+        <div
+          className="
+            absolute 
+            bottom-4 sm:bottom-8 
+            left-1/2 -translate-x-1/2 
+            flex gap-3 sm:gap-4 
+            z-10 
+            px-4
+          "
+        >
           {content.slides.map((_, index) => (
             <button
               key={index}
               onClick={() => setCurrentSlide(index)}
-              className={`w-3 h-3 rounded-full transition-all duration-200 ${
-                index === currentSlide ? "bg-white w-8" : "bg-white/50"
-              }`}
               type="button"
+              aria-label={`Go to slide ${index + 1}`}
+              className={`h-2.5 sm:h-3 rounded-full transition-all duration-200 ${
+                index === currentSlide
+                  ? "bg-white w-8 sm:w-9"
+                  : "bg-white/50 w-3 sm:w-3.5"
+              }`}
             />
           ))}
         </div>

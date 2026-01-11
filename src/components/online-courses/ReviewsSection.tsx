@@ -2,7 +2,15 @@ import { useEffect, useMemo, useState } from "react";
 import { Star, ChevronLeft, ChevronRight } from "lucide-react";
 import { Card } from "@/components/ui/card";
 
-const ReviewsSection = ({ reviews }) => {
+type Props = {
+  reviews: {
+    pill: string;
+    title: string;
+    items: string[];
+  };
+};
+
+const ReviewsSection = ({ reviews }: Props) => {
   const items = useMemo(() => reviews?.items ?? [], [reviews]);
   const [index, setIndex] = useState(0);
 
@@ -18,11 +26,10 @@ const ReviewsSection = ({ reviews }) => {
     setIndex((prev) => (prev === items.length - 1 ? 0 : prev + 1));
   };
 
-  // keyboard support
   useEffect(() => {
     if (!hasMany) return;
 
-    const onKeyDown = (e) => {
+    const onKeyDown = (e: KeyboardEvent) => {
       if (e.key === "ArrowLeft") goPrev();
       if (e.key === "ArrowRight") goNext();
     };
@@ -32,8 +39,7 @@ const ReviewsSection = ({ reviews }) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [hasMany, items.length]);
 
-  // touch swipe support (no libs)
-  const onTouchStart = (e) => {
+  const onTouchStart = (e: React.TouchEvent<HTMLDivElement>) => {
     if (!hasMany) return;
     const t = e.touches?.[0];
     if (!t) return;
@@ -41,7 +47,7 @@ const ReviewsSection = ({ reviews }) => {
     e.currentTarget.dataset.touchY = String(t.clientY);
   };
 
-  const onTouchEnd = (e) => {
+  const onTouchEnd = (e: React.TouchEvent<HTMLDivElement>) => {
     if (!hasMany) return;
 
     const startX = Number(e.currentTarget.dataset.touchX || 0);
@@ -52,10 +58,8 @@ const ReviewsSection = ({ reviews }) => {
     const dx = t.clientX - startX;
     const dy = t.clientY - startY;
 
-    // ignore vertical scroll gestures
     if (Math.abs(dy) > Math.abs(dx)) return;
 
-    // threshold
     if (dx > 40) goPrev();
     if (dx < -40) goNext();
   };
@@ -63,31 +67,29 @@ const ReviewsSection = ({ reviews }) => {
   const currentText = items[index] ?? "";
 
   return (
-    <section className="py-20 px-6 bg-muted/50">
+    <section className="py-12 sm:py-14 md:py-16 px-4 sm:px-6 bg-muted/50">
       <div className="max-w-4xl mx-auto">
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 bg-secondary border border-border rounded-full px-4 py-2 mb-6">
+        <div className="text-center mb-10 sm:mb-12 md:mb-14">
+          <div className="inline-flex items-center gap-2 bg-secondary border border-border rounded-full px-3.5 py-1.5 mb-5 sm:mb-6">
             <Star className="h-4 w-4 text-primary" />
             <span className="text-sm font-medium text-foreground">
               {reviews.pill}
             </span>
           </div>
 
-          <h2 className="text-4xl md:text-5xl font-light text-foreground">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-light text-foreground leading-tight">
             {reviews.title}
           </h2>
         </div>
 
-        {/* Carousel */}
         <div className="relative">
-          {/* Nav buttons */}
           {hasMany && (
             <>
               <button
                 type="button"
                 onClick={goPrev}
                 aria-label="Previous review"
-                className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-2 md:-translate-x-12 w-10 h-10 rounded-full bg-white border border-border shadow-sm flex items-center justify-center hover:bg-muted smooth-transition"
+                className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-2 sm:-translate-x-10 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white border border-border shadow-sm flex items-center justify-center hover:bg-muted smooth-transition"
               >
                 <ChevronLeft className="h-5 w-5 text-foreground" />
               </button>
@@ -96,29 +98,27 @@ const ReviewsSection = ({ reviews }) => {
                 type="button"
                 onClick={goNext}
                 aria-label="Next review"
-                className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-2 md:translate-x-12 w-10 h-10 rounded-full bg-white border border-border shadow-sm flex items-center justify-center hover:bg-muted smooth-transition"
+                className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-2 sm:translate-x-10 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white border border-border shadow-sm flex items-center justify-center hover:bg-muted smooth-transition"
               >
                 <ChevronRight className="h-5 w-5 text-foreground" />
               </button>
             </>
           )}
 
-          {/* Slide */}
           <div
             className="select-none"
             onTouchStart={onTouchStart}
             onTouchEnd={onTouchEnd}
           >
-            <Card className="p-8 lg:p-12 border border-border elegant-shadow">
-              <blockquote className="text-lg text-muted-foreground font-light leading-relaxed text-center italic">
+            <Card className="p-6 sm:p-8 md:p-10 border border-border elegant-shadow">
+              <blockquote className="text-sm sm:text-base md:text-lg text-muted-foreground font-light leading-relaxed text-center italic">
                 “{currentText}”
               </blockquote>
             </Card>
           </div>
 
-          {/* Dots */}
           {hasMany && (
-            <div className="flex items-center justify-center gap-2 mt-6">
+            <div className="flex items-center justify-center gap-2 mt-5 sm:mt-6">
               {items.map((_, i) => (
                 <button
                   key={i}

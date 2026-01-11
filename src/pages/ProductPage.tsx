@@ -87,9 +87,9 @@ const ProductPage = () => {
     return (
       <div className="min-h-screen bg-white">
         <Header content={content.header} />
-        <div className="pt-24 px-6">
-          <div className="max-w-3xl mx-auto text-center py-24">
-            <h1 className="text-2xl font-medium text-neutral-900 mb-4">
+        <div className="pt-20 sm:pt-24 px-4 sm:px-6">
+          <div className="max-w-3xl mx-auto text-center py-16 sm:py-24">
+            <h1 className="text-xl sm:text-2xl font-medium text-neutral-900 mb-4">
               Product not found
             </h1>
             <Button onClick={() => navigate("/#catalog")} variant="outline">
@@ -125,19 +125,21 @@ const ProductPage = () => {
     <div className="min-h-screen bg-white">
       <Header content={content.header} />
 
-      <div className="pt-24 pb-16 px-6">
+      <div className="pt-20 sm:pt-24 pb-12 sm:pb-14 md:pb-16 px-4 sm:px-6">
         <div className="max-w-7xl mx-auto">
           <Button
             variant="ghost"
             onClick={() => navigate("/#catalog")}
-            className="mb-8 text-neutral-600 hover:text-neutral-900"
+            className="mb-5 sm:mb-6 text-neutral-600 hover:text-neutral-900"
+            type="button"
           >
             <ArrowLeft className="h-4 w-4 mr-2" />
             Back to catalog
           </Button>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-            <div className="space-y-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 sm:gap-12 md:gap-14 lg:gap-16">
+            {/* Images */}
+            <div className="space-y-4 sm:space-y-5 md:space-y-6">
               <div className="relative group" {...swipeHandlers}>
                 <div className="aspect-square overflow-hidden bg-neutral-50 rounded-lg">
                   <img
@@ -189,7 +191,7 @@ const ProductPage = () => {
               )}
 
               {hasGallery && (
-                <div className="grid grid-cols-4 gap-4">
+                <div className="grid grid-cols-4 gap-2 sm:gap-3 md:gap-4">
                   {gallery.map((image, index) => (
                     <button
                       key={index}
@@ -213,48 +215,50 @@ const ProductPage = () => {
               )}
             </div>
 
-            <div className="space-y-8">
+            {/* Info */}
+            <div className="space-y-6 sm:space-y-7 md:space-y-8">
               <div>
                 {product.badge && (
-                  <Badge className="mb-4 bg-neutral-900 text-white hover:bg-neutral-800">
+                  <Badge className="mb-3 sm:mb-4 bg-neutral-900 text-white hover:bg-neutral-800">
                     {product.badge}
                   </Badge>
                 )}
 
-                <h1 className="text-3xl lg:text-4xl font-light text-neutral-900 mb-4 tracking-tight">
+                <h1 className="text-2xl sm:text-3xl lg:text-4xl font-light text-neutral-900 mb-3 sm:mb-4 tracking-tight">
                   {product.name}
                 </h1>
 
-                <div className="flex items-center gap-3 mb-6">
-                  <span className="text-2xl font-medium text-neutral-900">
+                <div className="flex items-center gap-3 mb-4 sm:mb-6">
+                  <span className="text-xl sm:text-2xl font-medium text-neutral-900">
                     {fromPrice}
                   </span>
                   {product.originalPrice && (
-                    <span className="text-lg text-neutral-400 line-through">
+                    <span className="text-base sm:text-lg text-neutral-400 line-through">
                       {product.originalPrice}
                     </span>
                   )}
                 </div>
               </div>
 
-              <Card className="p-6 rounded-none shadow-none border border-neutral-200">
-                <div className="space-y-5">
+              <Card className="p-5 sm:p-6 rounded-none shadow-none border border-neutral-200">
+                <div className="space-y-4 sm:space-y-5">
                   {product.description && (
                     <div>
-                      <h3 className="text-lg font-medium text-neutral-900 mb-2">
+                      <h3 className="text-base sm:text-lg font-medium text-neutral-900 mb-2">
                         Description
                       </h3>
-                      <p className="text-neutral-600 leading-relaxed">
+                      <p className="text-sm sm:text-base text-neutral-600 leading-relaxed">
                         {product.description}
                       </p>
                     </div>
                   )}
 
                   <div>
-                    <h3 className="text-lg font-medium text-neutral-900 mb-3">
+                    <h3 className="text-base sm:text-lg font-medium text-neutral-900 mb-3">
                       Details
                     </h3>
-                    <div className="space-y-2">
+
+                    <div className="space-y-2 text-sm sm:text-base">
                       <div className="flex justify-between gap-6">
                         <span className="text-neutral-600">Product ID:</span>
                         <span className="text-neutral-900 text-right">
@@ -288,9 +292,9 @@ const ProductPage = () => {
                     </div>
                   </div>
 
-                  <div className="pt-2">
+                  <div className="pt-1 sm:pt-2">
                     <Button
-                      className="w-full bg-neutral-900 hover:bg-neutral-800 text-white h-12 rounded-none"
+                      className="w-full bg-neutral-900 hover:bg-neutral-800 text-white h-11 sm:h-12 rounded-none"
                       size="lg"
                       onClick={() =>
                         window.open(
@@ -298,8 +302,9 @@ const ProductPage = () => {
                           "_blank"
                         )
                       }
+                      type="button"
                     >
-                      Order now - {fromPrice}
+                      Order now — {fromPrice}
                     </Button>
                   </div>
                 </div>

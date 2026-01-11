@@ -13,16 +13,16 @@ const Biography = ({ content }: Props) => {
     : `${import.meta.env.BASE_URL}images/biography.jpg`;
 
   return (
-    <section id={id} className="py-24 px-6 bg-white">
+    <section id={id} className="py-14 sm:py-16 md:py-20 px-4 sm:px-6 bg-white">
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 sm:gap-12 lg:gap-14 items-center">
           <div>
-            <h2 className="text-4xl md:text-5xl font-light text-neutral-900 mb-8 tracking-tight">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-light text-neutral-900 mb-5 sm:mb-6 tracking-tight">
               {content?.title}
             </h2>
-            <div className="w-24 h-px bg-neutral-300 mb-8"></div>
+            <div className="w-16 sm:w-20 md:w-24 h-px bg-neutral-300 mb-6 sm:mb-7" />
 
-            <div className="space-y-6 text-lg text-neutral-600 font-light leading-relaxed">
+            <div className="space-y-4 sm:space-y-5 text-base sm:text-lg text-neutral-600 font-light leading-relaxed">
               {paragraphs.map((p, i) => (
                 <p key={i}>{p}</p>
               ))}
@@ -40,8 +40,8 @@ const Biography = ({ content }: Props) => {
               />
             </div>
 
-            <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-neutral-900 rounded-lg flex items-center justify-center">
-              <span className="text-white font-light text-sm text-center">
+            <div className="absolute -bottom-4 -right-4 sm:-bottom-5 sm:-right-5 w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 bg-neutral-900 rounded-lg flex items-center justify-center">
+              <span className="text-white font-light text-xs sm:text-sm text-center leading-snug">
                 {content?.badge?.line1}
                 <br />
                 {content?.badge?.line2}

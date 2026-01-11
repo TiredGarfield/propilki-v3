@@ -15,21 +15,24 @@ type Props = {
 
 const Competitions = ({ content }: Props) => {
   return (
-    <section id="competitions" className="py-24 px-6 bg-neutral-50">
+    <section
+      id="competitions"
+      className="py-14 sm:py-16 md:py-20 px-4 sm:px-6 bg-neutral-50"
+    >
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-20">
-          <h2 className="text-4xl md:text-5xl font-light text-neutral-900 mb-6 tracking-tight">
+        <div className="text-center mb-10 sm:mb-12 md:mb-14">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-light text-neutral-900 mb-4 sm:mb-5 tracking-tight">
             {content.sectionTitle}
           </h2>
-          <div className="w-24 h-px bg-neutral-300 mx-auto mb-8"></div>
-          <p className="text-lg text-neutral-600 font-light max-w-2xl mx-auto">
+          <div className="w-16 sm:w-20 md:w-24 h-px bg-neutral-300 mx-auto mb-5 sm:mb-6" />
+          <p className="text-base sm:text-lg text-neutral-600 font-light max-w-2xl mx-auto">
             {content.sectionSubtitle}
           </p>
         </div>
 
-        <div className="bg-white rounded-2xl p-8 md:p-12 shadow-sm">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="grid grid-cols-2 gap-4">
+        <div className="bg-white rounded-2xl p-6 sm:p-8 md:p-10 lg:p-12 shadow-sm">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 sm:gap-12 items-center">
+            <div className="grid grid-cols-2 gap-3 sm:gap-4">
               {content.images.map((img, i) => (
                 <div
                   key={i}
@@ -45,12 +48,12 @@ const Competitions = ({ content }: Props) => {
             </div>
 
             <div>
-              <div className="flex items-center gap-4 mb-6">
-                <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center">
-                  <Sparkles className="h-8 w-8 text-purple-600" />
+              <div className="flex items-center gap-4 mb-5 sm:mb-6">
+                <div className="w-14 h-14 sm:w-16 sm:h-16 bg-purple-100 rounded-full flex items-center justify-center">
+                  <Sparkles className="h-7 w-7 sm:h-8 sm:w-8 text-purple-600" />
                 </div>
                 <div>
-                  <h3 className="text-3xl font-light text-neutral-900 mb-1">
+                  <h3 className="text-2xl sm:text-3xl font-light text-neutral-900 mb-1">
                     {content.eventTitle}
                   </h3>
                   <p className="text-purple-600 font-medium">
@@ -59,11 +62,11 @@ const Competitions = ({ content }: Props) => {
                 </div>
               </div>
 
-              <p className="text-neutral-600 font-light leading-relaxed mb-6">
+              <p className="text-sm sm:text-base text-neutral-600 font-light leading-relaxed mb-5 sm:mb-6">
                 {content.description}
               </p>
 
-              <div className="space-y-5">
+              <div className="space-y-4 sm:space-y-5">
                 {content.highlights.map((h, i) => (
                   <div key={i}>
                     {h.title ? (
@@ -71,13 +74,13 @@ const Competitions = ({ content }: Props) => {
                         {h.title}
                       </h4>
                     ) : null}
-                    <p className="text-neutral-600 font-light leading-relaxed">
+                    <p className="text-sm sm:text-base text-neutral-600 font-light leading-relaxed">
                       {h.text}
                     </p>
                   </div>
                 ))}
 
-                <p className="text-neutral-600 font-light italic">
+                <p className="text-sm sm:text-base text-neutral-600 font-light italic">
                   {content.closing}
                 </p>
               </div>

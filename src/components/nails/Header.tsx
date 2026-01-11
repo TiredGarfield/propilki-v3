@@ -20,10 +20,10 @@ const Header = ({ content }: Props) => {
 
   return (
     <header className="fixed top-0 w-full bg-white/95 backdrop-blur-sm border-b border-neutral-100 z-50">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="flex items-center justify-between h-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+        <div className="flex items-center justify-between h-14 sm:h-16">
           <Link to="/" className="flex-shrink-0" onClick={closeMenu}>
-            <h1 className="text-2xl font-light tracking-wide text-neutral-900">
+            <h1 className="text-xl sm:text-2xl font-light tracking-wide text-neutral-900">
               {content.logoText}
             </h1>
           </Link>

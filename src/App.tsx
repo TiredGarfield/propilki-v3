@@ -8,7 +8,9 @@ import OnlineCourses from "./pages/Index";
 import Solo from "./pages/Solo";
 import ProductPage from "./pages/ProductPage";
 import NotFound from "./pages/NotFound";
+
 import ScrollToHash from "@/components/nails/ScrollToHash";
+import FaviconSwitcher from "@/components/FaviconSwitcher";
 
 const queryClient = new QueryClient();
 
@@ -18,6 +20,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter basename={import.meta.env.BASE_URL}>
+        <FaviconSwitcher />
         <ScrollToHash />
         <Routes>
           <Route path="/" element={<OnlineCourses />} />

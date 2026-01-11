@@ -7,28 +7,32 @@ import CoursesSection from "@/components/online-courses/CoursesSection";
 import ReviewsSection from "@/components/online-courses/ReviewsSection";
 import FAQSection from "@/components/online-courses/FAQSection";
 
-import content from "@/data/onlineCourses.json";
+import rawPropilki from "@/data/propilki.json";
+import rawSolo from "@/data/solo.json";
+
+const propilki = rawPropilki as any;
+const solo = rawSolo as any;
 
 const OnlineCourses = () => {
   return (
     <div className="min-h-screen bg-white">
-      <Header />
+      <Header content={solo.header} />
 
-      <HeroSection hero={content.hero} stats={content.stats} />
+      <HeroSection hero={propilki.hero} stats={propilki.stats} />
 
-      <AboutSection about={content.about} />
+      <AboutSection about={propilki.about} />
 
       <CoursesSection
-        section={content.coursesSection}
-        courses={content.courses}
-        ui={content.ui}
+        section={propilki.coursesSection}
+        courses={propilki.courses}
+        ui={propilki.ui}
       />
 
-      <ReviewsSection reviews={content.reviews} />
+      <ReviewsSection reviews={propilki.reviews} />
 
-      <FAQSection faq={content.faq} />
+      <FAQSection faq={propilki.faq} />
 
-      <Footer />
+      <Footer content={solo.footer} />
     </div>
   );
 };

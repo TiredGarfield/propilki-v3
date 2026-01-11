@@ -11,23 +11,25 @@ type NailProduct = {
   name: string;
   price: string;
   category: string;
-  images: string[]; // IMPORTANT: toate pozele produsului
+  images: string[];
   colors: string[];
   length: string;
 };
 
-const CATEGORY_ORDER = [
-  "All",
-  "Art Press-Ons",
-  "3D Designs",
-  "Korean-Inspired Trends",
-  "Monochrome Elegance",
-] as const;
+type Props = {
+  content: {
+    title: string;
+    subtitle: string;
+    categoryOrder: string[];
+    badgeLabel: string;
+  };
+};
 
-const NailCatalog = () => {
+const NailCatalog = ({ content }: Props) => {
   const navigate = useNavigate();
-  const [selectedCategory, setSelectedCategory] =
-    useState<(typeof CATEGORY_ORDER)[number]>("All");
+  const [selectedCategory, setSelectedCategory] = useState<string>(
+    content.categoryOrder[0] ?? "All"
+  );
 
   const products = (catalog.products as NailProduct[]) ?? [];
 
@@ -41,17 +43,16 @@ const NailCatalog = () => {
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-20">
           <h2 className="text-4xl md:text-5xl font-light text-neutral-900 mb-6 tracking-tight">
-            Shop All
+            {content.title}
           </h2>
           <div className="w-24 h-px bg-neutral-300 mx-auto mb-8"></div>
           <p className="text-lg text-neutral-600 font-light">
-            Discover our full catalog, curated by category
+            {content.subtitle}
           </p>
         </div>
 
-        {/* Filter Navigation */}
         <div className="flex flex-wrap justify-center gap-2 mb-16">
-          {CATEGORY_ORDER.map((category) => (
+          {content.categoryOrder.map((category) => (
             <Button
               key={category}
               variant={selectedCategory === category ? "default" : "ghost"}
@@ -67,10 +68,8 @@ const NailCatalog = () => {
           ))}
         </div>
 
-        {/* Product Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
           {filteredProducts.map((product) => {
-            // ✅ în catalog arătăm DOAR prima poză
             const coverImage = product.images?.[0]
               ? `${import.meta.env.BASE_URL}${product.images[0]}`
               : `${import.meta.env.BASE_URL}placeholder.svg`;
@@ -97,7 +96,7 @@ const NailCatalog = () => {
                   <div className="absolute inset-x-4 bottom-4 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-4 group-hover:translate-y-0">
                     <Button className="w-full bg-black hover:bg-neutral-800 text-white rounded-none font-medium tracking-wide text-sm py-2">
                       <Eye className="h-3 w-3 mr-2" />
-                      View Details
+                      {content.badgeLabel}
                     </Button>
                   </div>
                 </div>

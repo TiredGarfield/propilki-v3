@@ -1,3 +1,6 @@
+import rawContent from "@/data/solo.json";
+const content = rawContent as any;
+
 import Header from "@/components/nails/Header";
 import Hero from "@/components/nails/Hero";
 import Biography from "@/components/nails/Biography";
@@ -9,7 +12,6 @@ import CelebrityWorks from "@/components/nails/CelebrityWorks";
 import Championships from "@/components/nails/Championships";
 import Competitions from "@/components/nails/Competitions";
 import PackagingVisual from "@/components/nails/PackagingVisual";
-
 import Testimonials from "@/components/nails/Testimonials";
 import FAQ from "@/components/nails/FAQ";
 import Footer from "@/components/nails/Footer";
@@ -17,20 +19,33 @@ import Footer from "@/components/nails/Footer";
 const Index = () => {
   return (
     <div className="min-h-screen bg-white">
-      <Header />
-      <Hero />
-      <NailCatalog />
-      <Biography />
-      <Benefits />
-      <TipCreationProcess />
-      <HowItWorks />
-      <CelebrityWorks />
-      <Championships />
-      <Competitions />
-      <PackagingVisual />
-      <Testimonials />
-      <FAQ />
-      <Footer />
+      <Header content={content.header} />
+
+      <Hero content={content.heroCarousel} />
+
+      <NailCatalog content={content.catalog} />
+
+      <Biography content={content.biography} />
+
+      <Benefits content={content.benefits} />
+
+      <TipCreationProcess content={content.tipCreationProcess} />
+
+      <HowItWorks content={content.howItWorks} />
+
+      <CelebrityWorks content={content.celebrityWorks} />
+
+      <Championships content={content.championships} />
+
+      <Competitions content={content.competitions} />
+
+      <PackagingVisual content={content.packaging} />
+
+      <Testimonials content={content.testimonials} />
+
+      <FAQ content={content.faq} />
+
+      <Footer content={content.footer} />
     </div>
   );
 };

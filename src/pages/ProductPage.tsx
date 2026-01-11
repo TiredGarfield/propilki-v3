@@ -1,3 +1,6 @@
+import rawContent from "@/data/solo.json";
+const content = rawContent as any;
+
 import { useEffect, useMemo, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useSwipeable } from "react-swipeable";
@@ -20,8 +23,6 @@ type NailProduct = {
   images: string[];
   colors: string[];
   length: string;
-
-  // optional (dacă vrei mai târziu în JSON)
   description?: string;
   badge?: string;
   originalPrice?: string;
@@ -43,14 +44,12 @@ const ProductPage = () => {
     return products.find((p) => p.id === pid);
   }, [id, products]);
 
-  // reset index când se schimbă produsul
   useEffect(() => {
     setSelectedImageIndex(0);
   }, [product?.id]);
 
   const gallery = useMemo(() => {
     const imgs = product?.images ?? [];
-    // ✅ imagini din public/ -> folosim BASE_URL
     return imgs.map((p) => `${import.meta.env.BASE_URL}${p}`);
   }, [product]);
 
@@ -84,13 +83,12 @@ const ProductPage = () => {
     };
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [hasGallery, gallery.length]);
 
   if (!product) {
     return (
       <div className="min-h-screen bg-white">
-        <Header />
+        <Header content={content.header} />
         <div className="pt-24 px-6">
           <div className="max-w-3xl mx-auto text-center py-24">
             <h1 className="text-2xl font-medium text-neutral-900 mb-4">
@@ -101,7 +99,7 @@ const ProductPage = () => {
             </Button>
           </div>
         </div>
-        <Footer />
+        <Footer content={content.footer} />
       </div>
     );
   }
@@ -115,11 +113,10 @@ const ProductPage = () => {
 
   return (
     <div className="min-h-screen bg-white">
-      <Header />
+      <Header content={content.header} />
 
       <div className="pt-24 pb-16 px-6">
         <div className="max-w-7xl mx-auto">
-          {/* Back button */}
           <Button
             variant="ghost"
             onClick={() => navigate("/#catalog")}
@@ -130,7 +127,6 @@ const ProductPage = () => {
           </Button>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-            {/* Product Images */}
             <div className="space-y-6">
               <div className="relative group" {...swipeHandlers}>
                 <div className="aspect-square overflow-hidden bg-neutral-50 rounded-lg">
@@ -141,7 +137,6 @@ const ProductPage = () => {
                   />
                 </div>
 
-                {/* Navigation Arrows (doar dacă ai >1 imagine) */}
                 {hasGallery && (
                   <>
                     <button
@@ -165,7 +160,6 @@ const ProductPage = () => {
                 )}
               </div>
 
-              {/* Dots Indicator (doar dacă ai >1 imagine) */}
               {hasGallery && (
                 <div className="flex justify-center gap-2">
                   {gallery.map((_, index) => (
@@ -184,7 +178,6 @@ const ProductPage = () => {
                 </div>
               )}
 
-              {/* Thumbnails (doar dacă ai >1 imagine) */}
               {hasGallery && (
                 <div className="grid grid-cols-4 gap-4">
                   {gallery.map((image, index) => (
@@ -209,7 +202,6 @@ const ProductPage = () => {
               )}
             </div>
 
-            {/* Product Info */}
             <div className="space-y-8">
               <div>
                 {product.badge && (
@@ -323,7 +315,7 @@ const ProductPage = () => {
         </div>
       </div>
 
-      <Footer />
+      <Footer content={content.footer} />
     </div>
   );
 };

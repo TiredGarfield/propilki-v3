@@ -1,50 +1,27 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 
-const categories = [
-  {
-    id: 1,
-    name: "Art Press-Ons",
-    description:
-      "Our exclusive Art Press-Ons are meticulously crafted as bespoke pieces, inspired by iconic works of art. Each set is custom-made to your individual size and preferences, ensuring a perfect and personalized fit.",
-    image:
-      "https://images.unsplash.com/photo-1632345031435-8727f6897d53?w=800&h=600&fit=crop&crop=faces",
-  },
-  {
-    id: 2,
-    name: "3D Designs",
-    description:
-      "Experience three-dimensional patterns sculpted to any shape and length, creating a truly unique tactile effect.",
-    image:
-      "https://images.unsplash.com/photo-1604654894610-df63bc536371?w=800&h=600&fit=crop&crop=faces",
-  },
-  {
-    id: 3,
-    name: "Korean-Inspired Trends",
-    description:
-      "Drawing inspiration from the latest Korean manicure styles, our designs feature translucent bases, abstract motifs, and whimsical fantasy elements for a fresh, modern aesthetic.",
-    image:
-      "https://images.unsplash.com/photo-1610992015732-2449b76344bc?w=800&h=600&fit=crop&crop=faces",
-  },
-  {
-    id: 4,
-    name: "Monochrome Elegance",
-    description:
-      "Discover sleek and sophisticated monochrome designs that embody timeless minimalism and effortless style.",
-    image:
-      "https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=800&h=600&fit=crop&crop=faces",
-  },
-];
+type Props = {
+  content: {
+    autoPlayMs: number;
+    slides: {
+      id: number;
+      name: string;
+      description: string;
+      image: string;
+    }[];
+  };
+};
 
-const Hero = () => {
+const Hero = ({ content }: Props) => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % categories.length);
-    }, 4000);
+      setCurrentSlide((prev) => (prev + 1) % content.slides.length);
+    }, content.autoPlayMs);
 
     return () => clearInterval(timer);
-  }, []);
+  }, [content.autoPlayMs, content.slides.length]);
 
   return (
     <section className="relative w-full h-screen overflow-hidden">
@@ -54,21 +31,19 @@ const Hero = () => {
             className="flex transition-transform duration-500 ease-out h-full"
             style={{ transform: `translateX(-${currentSlide * 100}%)` }}
           >
-            {categories.map((category) => (
-              <div key={category.id} className="w-full flex-shrink-0 h-full">
+            {content.slides.map((slide) => (
+              <div key={slide.id} className="w-full flex-shrink-0 h-full">
                 <div className="relative h-full">
                   <img
-                    src={category.image}
-                    alt={category.name}
+                    src={slide.image}
+                    alt={slide.name}
                     className="w-full h-full object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                   <div className="absolute bottom-8 left-8 right-8 text-white">
-                    <h3 className="text-4xl font-medium mb-4">
-                      {category.name}
-                    </h3>
+                    <h3 className="text-4xl font-medium mb-4">{slide.name}</h3>
                     <p className="text-lg opacity-90 leading-relaxed max-w-2xl">
-                      {category.description}
+                      {slide.description}
                     </p>
                   </div>
                 </div>
@@ -77,15 +52,15 @@ const Hero = () => {
           </div>
         </div>
 
-        {/* Dots Indicator */}
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-3 z-10">
-          {categories.map((_, index) => (
+          {content.slides.map((_, index) => (
             <button
               key={index}
               onClick={() => setCurrentSlide(index)}
               className={`w-3 h-3 rounded-full transition-all duration-200 ${
                 index === currentSlide ? "bg-white w-8" : "bg-white/50"
               }`}
+              type="button"
             />
           ))}
         </div>

@@ -9,8 +9,14 @@ type Props = {
   };
 };
 
-const navLinkClass =
+const navLinkBase =
   "text-neutral-700 hover:text-black text-base font-medium tracking-wide transition-colors py-1";
+
+const navLinkUnderline =
+  "text-black font-medium tracking-wide text-base border-b border-black/20 hover:border-black transition-colors";
+
+const mobileLinkBase = "text-lg font-medium text-neutral-800";
+const mobileLinkActive = "text-lg font-medium text-black";
 
 const Header = ({ content }: Props) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -30,27 +36,24 @@ const Header = ({ content }: Props) => {
 
           {/* Desktop nav */}
           <nav className="hidden md:flex items-center space-x-10">
-            <Link to="/#catalog" className={navLinkClass}>
+            <Link to="/#catalog" className={navLinkBase}>
               Catalog
             </Link>
-            <Link to="/#how-it-works" className={navLinkClass}>
+            <Link to="/#how-it-works" className={navLinkBase}>
               How it works
             </Link>
-            <Link to="/#packaging" className={navLinkClass}>
+            <Link to="/#packaging" className={navLinkBase}>
               Packaging
             </Link>
-            <Link to="/#testimonials" className={navLinkClass}>
+            <Link to="/#testimonials" className={navLinkBase}>
               Reviews
             </Link>
-            <Link to="/#faq" className={navLinkClass}>
+            <Link to="/#faq" className={navLinkBase}>
               FAQ
             </Link>
 
             {/* CTA / altă pagină */}
-            <Link
-              to="/online-courses"
-              className="text-black font-medium tracking-wide text-base border-b border-black/20 hover:border-black transition-colors"
-            >
+            <Link to="/online-courses" className={navLinkUnderline}>
               Online courses
             </Link>
           </nav>
@@ -76,43 +79,39 @@ const Header = ({ content }: Props) => {
             <nav className="flex flex-col space-y-6">
               <Link
                 to="/#catalog"
-                className="text-lg font-medium text-neutral-800"
+                className={mobileLinkBase}
                 onClick={closeMenu}
               >
                 Catalog
               </Link>
               <Link
                 to="/#how-it-works"
-                className="text-lg font-medium text-neutral-800"
+                className={mobileLinkBase}
                 onClick={closeMenu}
               >
                 How it works
               </Link>
               <Link
                 to="/#packaging"
-                className="text-lg font-medium text-neutral-800"
+                className={mobileLinkBase}
                 onClick={closeMenu}
               >
                 Packaging
               </Link>
               <Link
                 to="/#testimonials"
-                className="text-lg font-medium text-neutral-800"
+                className={mobileLinkBase}
                 onClick={closeMenu}
               >
                 Reviews
               </Link>
-              <Link
-                to="/#faq"
-                className="text-lg font-medium text-neutral-800"
-                onClick={closeMenu}
-              >
+              <Link to="/#faq" className={mobileLinkBase} onClick={closeMenu}>
                 FAQ
               </Link>
 
               <Link
                 to="/online-courses"
-                className="text-lg font-medium text-black"
+                className={mobileLinkActive}
                 onClick={closeMenu}
               >
                 Online courses

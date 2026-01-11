@@ -40,12 +40,18 @@
     "image": "/images/biography.jpg",
     "imageAlt": "About Us Image",
     "paragraphs": [
-      "My name is Yulia, and I am an instructor in dry file manicure. My goal is to teach you a safe and effective dry manicure technique that is suitable for all skin types.",
-      "With over a decade of experience in the field, I will help you master a new technique and improve your professional approach."
+      "With over a decade of expertise in the nail art industry, I have devoted my career to elevating the craft of press-on nail design and application into a true art form.",
+      "My journey began as a traditional nail technician, but I soon discovered an irresistible passion for creating intricate, statement-making designs that transcend borders and trends. This vision inspired the creation of my signature press-on nail collection — where artistry meets innovation.",
+      "Honored as a winner of the prestigious Golden Brush Sofia competition, my work has graced the runway at Kiki Ball London, appeared in leading fashion editorials, and adorned the hands of celebrities and style icons worldwide. Each set is meticulously hand-crafted, blending precision, luxury, and durability to set a new standard in the industry."
     ],
+    "quote": "“I believe that beauty should be as effortless as it is extraordinary. Through press-on technology, I deliver salon-perfected results that seamlessly complement any lifestyle — wherever in the world you may be.”",
     "button": "Contact",
     "buttonHref": "https://www.instagram.com/lo.lo_nails/",
-    "socialProof": "2,000+ happy students"
+    "socialProof": "2,000+ happy students",
+    "badge": {
+      "line1": "10+ Years",
+      "line2": "Experience"
+    }
   },
   "coursesSection": {
     "pill": "Courses",

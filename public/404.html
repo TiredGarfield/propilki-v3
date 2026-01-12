@@ -1,23 +1,17 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PROPILKI</title>
+  </head>
+  <body>
     <script>
       (function () {
         var l = window.location;
-        var base = "/propilki-v3/";
-        var path = l.pathname.startsWith(base)
-          ? l.pathname.slice(base.length)
-          : l.pathname.slice(1);
-        var target =
-          base +
-          "?p=" +
-          encodeURIComponent("/" + path) +
-          "&h=" +
-          encodeURIComponent(l.hash || "");
-        l.replace(target);
+        var path = l.pathname + l.search + l.hash;
+        l.replace(l.origin + "/?p=" + encodeURIComponent(path));
       })();
     </script>
-  </head>
-  <body></body>
+  </body>
 </html>

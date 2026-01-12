@@ -10,8 +10,8 @@
             ],
             "length": "Medium",
             "images": [
-                "/images/nails/nails-art/art-1-1.webp",
-                "/images/nails/nails-art/art-1-2.webp"
+                "images/nails/nails-art/art-1-1.webp",
+                "images/nails/nails-art/art-1-2.webp"
             ]
         },
         {
@@ -24,8 +24,8 @@
             ],
             "length": "Medium",
             "images": [
-                "/images/nails/nails-art/art-2-1.webp",
-                "/images/nails/nails-art/art-2-2.webp"
+                "images/nails/nails-art/art-2-1.webp",
+                "images/nails/nails-art/art-2-2.webp"
             ]
         },
         {
@@ -38,10 +38,10 @@
             ],
             "length": "Long",
             "images": [
-                "/images/nails/nails-art/art-3-1.webp",
-                "/images/nails/nails-art/art-3-2.webp",
-                "/images/nails/nails-art/art-3-3.webp",
-                "/images/nails/nails-art/art-3-4.webp"
+                "images/nails/nails-art/art-3-1.webp",
+                "images/nails/nails-art/art-3-2.webp",
+                "images/nails/nails-art/art-3-3.webp",
+                "images/nails/nails-art/art-3-4.webp"
             ]
         },
         {
@@ -54,8 +54,8 @@
             ],
             "length": "Medium",
             "images": [
-                "/images/nails/nails-art/art-4-1.webp",
-                "/images/nails/nails-art/art-4-2.webp"
+                "images/nails/nails-art/art-4-1.webp",
+                "images/nails/nails-art/art-4-2.webp"
             ]
         },
         {
@@ -68,8 +68,8 @@
             ],
             "length": "Short",
             "images": [
-                "/images/nails/nails-art/art-5-1.webp",
-                "/images/nails/nails-art/art-5-2.webp"
+                "images/nails/nails-art/art-5-1.webp",
+                "images/nails/nails-art/art-5-2.webp"
             ]
         },
         {
@@ -82,8 +82,8 @@
             ],
             "length": "Medium",
             "images": [
-                "/images/nails/nails-art/art-6-1.webp",
-                "/images/nails/nails-art/art-6-2.webp"
+                "images/nails/nails-art/art-6-1.webp",
+                "images/nails/nails-art/art-6-2.webp"
             ]
         },
         {
@@ -96,8 +96,8 @@
             ],
             "length": "Medium",
             "images": [
-                "/images/nails/nails-art/art-7-1.webp",
-                "/images/nails/nails-art/art-7-2.webp"
+                "images/nails/nails-art/art-7-1.webp",
+                "images/nails/nails-art/art-7-2.webp"
             ]
         },
         {
@@ -110,8 +110,8 @@
             ],
             "length": "Long",
             "images": [
-                "/images/nails/nails-3d/3d-design-1-1.webp",
-                "/images/nails/nails-3d/3d-design-1-2.webp"
+                "images/nails/nails-3d/3d-design-1-1.webp",
+                "images/nails/nails-3d/3d-design-1-2.webp"
             ]
         },
         {
@@ -124,11 +124,11 @@
             ],
             "length": "Long",
             "images": [
-                "/images/nails/nails-3d/3d-design-3-1.webp",
-                "/images/nails/nails-3d/3d-design-3-2.webp",
-                "/images/nails/nails-3d/3d-design-3-3.webp",
-                "/images/nails/nails-3d/3d-design-3-4.webp",
-                "/images/nails/nails-3d/3d-design-3-5.webp"
+                "images/nails/nails-3d/3d-design-3-1.webp",
+                "images/nails/nails-3d/3d-design-3-2.webp",
+                "images/nails/nails-3d/3d-design-3-3.webp",
+                "images/nails/nails-3d/3d-design-3-4.webp",
+                "images/nails/nails-3d/3d-design-3-5.webp"
             ]
         },
         {
@@ -141,8 +141,8 @@
             ],
             "length": "Medium",
             "images": [
-                "/images/nails/nails-3d/3d-design-4-1.webp",
-                "/images/nails/nails-3d/3d-design-4-2.webp"
+                "images/nails/nails-3d/3d-design-4-1.webp",
+                "images/nails/nails-3d/3d-design-4-2.webp"
             ]
         },
         {
@@ -155,10 +155,10 @@
             ],
             "length": "Long",
             "images": [
-                "/images/nails/nails-3d/3d-design-5-1.webp",
-                "/images/nails/nails-3d/3d-design-5-2.webp",
-                "/images/nails/nails-3d/3d-design-5-3.webp",
-                "/images/nails/nails-3d/3d-design-5-4.webp"
+                "images/nails/nails-3d/3d-design-5-1.webp",
+                "images/nails/nails-3d/3d-design-5-2.webp",
+                "images/nails/nails-3d/3d-design-5-3.webp",
+                "images/nails/nails-3d/3d-design-5-4.webp"
             ]
         },
         {
@@ -171,9 +171,9 @@
             ],
             "length": "Medium",
             "images": [
-                "/images/nails/nails-3d/3d-design-6-1.webp",
-                "/images/nails/nails-3d/3d-design-6-2.webp",
-                "/images/nails/nails-3d/3d-design-6-3.webp"
+                "images/nails/nails-3d/3d-design-6-1.webp",
+                "images/nails/nails-3d/3d-design-6-2.webp",
+                "images/nails/nails-3d/3d-design-6-3.webp"
             ]
         },
         {
@@ -186,9 +186,9 @@
             ],
             "length": "Long",
             "images": [
-                "/images/nails/nails-3d/3d-design-7-1.webp",
-                "/images/nails/nails-3d/3d-design-7-2.webp",
-                "/images/nails/nails-3d/3d-design-7-3.webp"
+                "images/nails/nails-3d/3d-design-7-1.webp",
+                "images/nails/nails-3d/3d-design-7-2.webp",
+                "images/nails/nails-3d/3d-design-7-3.webp"
             ]
         },
         {
@@ -201,9 +201,9 @@
             ],
             "length": "Medium",
             "images": [
-                "/images/nails/nails-3d/3d-design-8-1.webp",
-                "/images/nails/nails-3d/3d-design-8-2.webp",
-                "/images/nails/nails-3d/3d-design-8-3.webp"
+                "images/nails/nails-3d/3d-design-8-1.webp",
+                "images/nails/nails-3d/3d-design-8-2.webp",
+                "images/nails/nails-3d/3d-design-8-3.webp"
             ]
         },
         {
@@ -216,8 +216,8 @@
             ],
             "length": "Medium",
             "images": [
-                "/images/nails/nails-3d/3d-design-9-1.webp",
-                "/images/nails/nails-3d/3d-design-9-2.webp"
+                "images/nails/nails-3d/3d-design-9-1.webp",
+                "images/nails/nails-3d/3d-design-9-2.webp"
             ]
         },
         {
@@ -230,7 +230,7 @@
             ],
             "length": "Medium",
             "images": [
-                "/images/nails/nails-3d/3d-design-10.webp"
+                "images/nails/nails-3d/3d-design-10.webp"
             ]
         },
         {
@@ -243,7 +243,7 @@
             ],
             "length": "Medium",
             "images": [
-                "/images/nails/nails-3d/3d-design-11.webp"
+                "images/nails/nails-3d/3d-design-11.webp"
             ]
         },
         {
@@ -256,7 +256,7 @@
             ],
             "length": "Short",
             "images": [
-                "/images/nails/nails-korean/korean-design-1.webp"
+                "images/nails/nails-korean/korean-design-1.webp"
             ]
         },
         {
@@ -269,7 +269,7 @@
             ],
             "length": "Short",
             "images": [
-                "/images/nails/nails-korean/korean-design-2.webp"
+                "images/nails/nails-korean/korean-design-2.webp"
             ]
         },
         {
@@ -282,7 +282,7 @@
             ],
             "length": "Medium",
             "images": [
-                "/images/nails/nails-korean/korean-design-3.webp"
+                "images/nails/nails-korean/korean-design-3.webp"
             ]
         },
         {
@@ -295,8 +295,8 @@
             ],
             "length": "Medium",
             "images": [
-                "/images/nails/nails-korean/korean-design-4-1.webp",
-                "/images/nails/nails-korean/korean-design-4-2.webp"
+                "images/nails/nails-korean/korean-design-4-1.webp",
+                "images/nails/nails-korean/korean-design-4-2.webp"
             ]
         },
         {
@@ -309,8 +309,8 @@
             ],
             "length": "Medium",
             "images": [
-                "/images/nails/nails-korean/korean-design-5-1.webp",
-                "/images/nails/nails-korean/korean-design-5-2.webp"
+                "images/nails/nails-korean/korean-design-5-1.webp",
+                "images/nails/nails-korean/korean-design-5-2.webp"
             ]
         },
         {
@@ -323,7 +323,7 @@
             ],
             "length": "Short",
             "images": [
-                "/images/nails/nails-monochrome/monochrome-1.webp"
+                "images/nails/nails-monochrome/monochrome-1.webp"
             ]
         },
         {
@@ -336,7 +336,7 @@
             ],
             "length": "Medium",
             "images": [
-                "/images/nails/nails-monochrome/monochrome-2.webp"
+                "images/nails/nails-monochrome/monochrome-2.webp"
             ]
         },
         {
@@ -349,7 +349,7 @@
             ],
             "length": "Medium",
             "images": [
-                "/images/nails/nails-monochrome/monochrome-3.webp"
+                "images/nails/nails-monochrome/monochrome-3.webp"
             ]
         },
         {
@@ -362,8 +362,8 @@
             ],
             "length": "Medium",
             "images": [
-                "/images/nails/nails-monochrome/monochrome-4-1.webp",
-                "/images/nails/nails-monochrome/monochrome-4-2.webp"
+                "images/nails/nails-monochrome/monochrome-4-1.webp",
+                "images/nails/nails-monochrome/monochrome-4-2.webp"
             ]
         },
         {
@@ -376,7 +376,7 @@
             ],
             "length": "Medium",
             "images": [
-                "/images/nails/nails-monochrome/monochrome-5.webp"
+                "images/nails/nails-monochrome/monochrome-5.webp"
             ]
         },
         {
@@ -389,7 +389,7 @@
             ],
             "length": "Medium",
             "images": [
-                "/images/nails/nails-monochrome/monochrome-6.webp"
+                "images/nails/nails-monochrome/monochrome-6.webp"
             ]
         }
     ]

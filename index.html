@@ -4,6 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+    <script>
+      (function () {
+        var p = new URLSearchParams(window.location.search).get("p");
+        if (p) window.history.replaceState(null, "", decodeURIComponent(p));
+      })();
+    </script>
+
     <title>PROPILKI</title>
 
     <meta
@@ -11,21 +18,21 @@
       content="Professional nail design, press-on nails and nail education by PROPILKI."
     />
 
-    <!-- FAVICON (default). IMPORTANT pentru Vite: %BASE_URL% -->
     <link id="favicon" rel="icon" href="%BASE_URL%propilki_favicon.svg" />
     <link rel="apple-touch-icon" href="%BASE_URL%apple-touch-icon.png" />
 
-    <!-- OPEN GRAPH (NECESAR ca să scapi de preview-ul Lovable) -->
     <meta property="og:type" content="website" />
     <meta property="og:title" content="PROPILKI" />
     <meta
       property="og:description"
       content="Professional nail design, press-on nails and nail education by PROPILKI."
     />
-    <meta property="og:url" content="https://propilki.com" />
-    <meta property="og:image" content="https://propilki.com/propilki_logo.svg" />
+    <meta property="og:url" content="https://propilki.online" />
+    <meta
+      property="og:image"
+      content="https://propilki.online/propilki_logo.svg"
+    />
 
-    <!-- TWITTER -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="PROPILKI" />
     <meta
@@ -34,7 +41,7 @@
     />
     <meta
       name="twitter:image"
-      content="https://propilki.com/propilki_logo.svg"
+      content="https://propilki.online/propilki_logo.svg"
     />
   </head>
 

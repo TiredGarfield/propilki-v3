@@ -54,12 +54,9 @@ const TipCreationProcess = ({ content }: Props) => {
             const Icon = ICONS[step.icon];
             return (
               <div key={index} className="text-center">
-                <div className="relative mb-5 sm:mb-6">
+                <div className="mb-5 sm:mb-6">
                   <div className="w-16 h-16 sm:w-20 sm:h-20 bg-white rounded-full flex items-center justify-center mx-auto shadow-sm">
                     <Icon className="h-7 w-7 sm:h-8 sm:w-8 text-neutral-700" />
-                  </div>
-                  <div className="absolute -top-2 -right-2 w-7 h-7 sm:w-8 sm:h-8 bg-neutral-900 text-white rounded-full flex items-center justify-center text-xs sm:text-sm font-medium">
-                    {index + 1}
                   </div>
                 </div>
                 <h3 className="text-lg sm:text-xl font-medium text-neutral-900 mb-2 sm:mb-3 tracking-wide">

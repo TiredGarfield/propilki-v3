@@ -22,7 +22,7 @@ const FAQ = ({ content }: Props) => {
           <div className="inline-flex items-center gap-2 bg-secondary border border-border rounded-full px-3.5 py-1.5 mb-5 sm:mb-6">
             <BookOpen className="h-4 w-4 text-primary" />
             <span className="text-sm font-medium text-foreground">
-              {content.pill}
+              {content.pill} 
             </span>
           </div>
 

@@ -21,14 +21,13 @@ const HowItWorks = ({ content }: Props) => {
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-light tracking-tight">
             {content.title}
           </h2>
+          <div className="w-16 sm:w-20 md:w-24 h-px bg-neutral-600 mx-auto mt-4 sm:mt-5" />
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 mb-10 sm:mb-12">
           <div className="aspect-[4/3] bg-neutral-800 rounded-lg overflow-hidden">
             <img
-              src={`${
-                import.meta.env.BASE_URL
-              }images/press_on_nails_guide1.jpg`}
+              src={`${import.meta.env.BASE_URL}images/press_on_nails_guide1.jpg`}
               alt="Press-on nails guide step 1"
               className="w-full h-full object-contain"
               loading="lazy"
@@ -37,9 +36,7 @@ const HowItWorks = ({ content }: Props) => {
 
           <div className="aspect-[4/3] bg-neutral-800 rounded-lg overflow-hidden">
             <img
-              src={`${
-                import.meta.env.BASE_URL
-              }images/press_on_nails_guide2.jpg`}
+              src={`${import.meta.env.BASE_URL}images/press_on_nails_guide2.jpg`}
               alt="Press-on nails guide step 2"
               className="w-full h-full object-contain"
               loading="lazy"
@@ -68,9 +65,7 @@ const HowItWorks = ({ content }: Props) => {
               </a>
 
               <a
-                href={`${
-                  import.meta.env.BASE_URL
-                }images/press_on_nails_guide.pdf`}
+                href={`${import.meta.env.BASE_URL}images/press_on_nails_guide.pdf`}
                 download
                 className="border border-neutral-600 text-white px-6 py-3 font-medium tracking-wide hover:bg-neutral-700 transition-colors"
               >
